@@ -26,6 +26,8 @@
 		625C1D93296DD3DE00897295 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D92296DD3DE00897295 /* Loading.swift */; };
 		625C1D98296DDA8B00897295 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D97296DDA8B00897295 /* Strings.swift */; };
 		625C1D9B296DDAFD00897295 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D9D296DDAFD00897295 /* Localizable.strings */; };
+		625C1DB0296E187D00897295 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 625C1DAF296E187D00897295 /* Resolver */; };
+		625C1DB3296E18A600897295 /* Resolver+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DB2296E18A600897295 /* Resolver+Injection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,7 @@
 		625C1D92296DD3DE00897295 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		625C1D97296DDA8B00897295 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		625C1D9C296DDAFD00897295 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		625C1DB2296E18A600897295 /* Resolver+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Injection.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625C1DB0296E187D00897295 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +124,7 @@
 			children = (
 				625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */,
 				625C1D4F296DCAA900897295 /* ContentView.swift */,
+				625C1DB1296E189200897295 /* DependencyInjection */,
 				625C1D77296DD20500897295 /* Screens */,
 				625C1D7D296DD24A00897295 /* Components */,
 				625C1D80296DD28400897295 /* Constants */,
@@ -176,7 +181,6 @@
 		625C1D7D296DD24A00897295 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				625C1D9E296DFCC700897295 /* New Group */,
 				625C1D7E296DD26000897295 /* Loading */,
 				625C1D7F296DD26800897295 /* SearchView */,
 			);
@@ -220,11 +224,12 @@
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
-		625C1D9E296DFCC700897295 /* New Group */ = {
+		625C1DB1296E189200897295 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				625C1DB2296E18A600897295 /* Resolver+Injection.swift */,
 			);
-			path = "New Group";
+			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +249,9 @@
 			dependencies = (
 			);
 			name = ArgyleLink;
+			packageProductDependencies = (
+				625C1DAF296E187D00897295 /* Resolver */,
+			);
 			productName = ArgyleLink;
 			productReference = 625C1D4A296DCAA900897295 /* ArgyleLink.app */;
 			productType = "com.apple.product-type.application";
@@ -316,6 +324,9 @@
 				Base,
 			);
 			mainGroup = 625C1D41296DCAA900897295;
+			packageReferences = (
+				625C1DAE296E187D00897295 /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 625C1D4B296DCAA900897295 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -392,6 +403,7 @@
 				625C1D4E296DCAA900897295 /* ArgyleLinkApp.swift in Sources */,
 				625C1D89296DD2C900897295 /* Images.swift in Sources */,
 				625C1D7A296DD23800897295 /* SearchScreen.swift in Sources */,
+				625C1DB3296E18A600897295 /* Resolver+Injection.swift in Sources */,
 				625C1D93296DD3DE00897295 /* Loading.swift in Sources */,
 				625C1D83296DD2AA00897295 /* SearchFieldStyle.swift in Sources */,
 			);
@@ -729,6 +741,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		625C1DAE296E187D00897295 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		625C1DAF296E187D00897295 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 625C1DAE296E187D00897295 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 625C1D42296DCAA900897295 /* Project object */;
 }

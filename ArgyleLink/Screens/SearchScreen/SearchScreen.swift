@@ -15,14 +15,14 @@ struct SearchScreen: View {
 
     var body: some View {
         content
-        // TODO: Add loading
+            .loading(viewModel.isLoading)
         // TODO: Add alert for error handling
     }
 
     var content: some View {
         VStack(spacing: 0) {
             SearchView(viewModel: viewModel)
-            Spacer()
+            CompanyListView(viewModel: viewModel)
         }
     }
 

@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView<ViewModel: SearchViewModelProtocol>: View {
 
     @ObservedObject var viewModel: ViewModel
-    var configuration: Configuration = .init()
+    let configuration: Configuration = .init()
 
     @FocusState private var isFocused: Bool
 
@@ -22,7 +22,7 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
 
     var content: some View {
         VStack {
-            searchField
+            searchInput
                 .padding(.horizontal)
             Divider()
         }
@@ -30,19 +30,12 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
 
     // MARK: - LEVEL 1 Views: Main UI Elements
 
-    var searchField: some View {
-        HStack {
-            searchInput
-            searchButton
-        }
-    }
-
-    // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
-
     var searchInput: some View {
         HStack(spacing: 0) {
+            searchImage
+                .padding(configuration.innerPadding)
             textField
-                .padding([.leading, .vertical], configuration.innerPadding)
+                .padding(.vertical, configuration.innerPadding)
             clearButton
                 .padding([.vertical, .trailing], configuration.innerPadding)
         }
@@ -53,15 +46,18 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
         .disabled(viewModel.isSearchFieldDisabled)
     }
 
+    // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
+
+    var searchImage: some View {
+        Image.search
+    }
+
     var textField: some View {
         TextField(
             LocalizedStringKey(viewModel.searchFieldPlaceholder),
             text: $viewModel.searchText
         )
         .focused($isFocused)
-        .onSubmit {
-            viewModel.search()
-        }
     }
 
     @ViewBuilder
@@ -77,15 +73,6 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
 
     func clearButtonImage() -> some View {
         Image.clear
-    }
-
-    var searchButton: some View {
-        Button(
-            LocalizedStringKey(viewModel.searchButtonTitle),
-            action: viewModel.search
-        )
-        .searchButtonStyle()
-        .disabled(viewModel.isSearchDisabled)
     }
 }
 

@@ -11,11 +11,6 @@ protocol SearchViewModelProtocol: ObservableObject {
 
     var searchText: String { get set }
     var isSearchFieldDisabled: Bool { get }
-    var isSearchDisabled: Bool { get }
-
-    func search()
-    func loadNextPage()
-    func clearSearch()
 }
 
 extension SearchViewModelProtocol {
@@ -32,10 +27,6 @@ extension SearchViewModelProtocol {
 extension SearchViewModelProtocol {
 
     var searchFieldPlaceholder: String {
-        String.searchScreenSearchTextFieldPlaceholder
-    }
-
-    var searchButtonTitle: String {
-        String.searchScreenSearchButtonTitle
+        .searchScreenSearchTextFieldPlaceholder
     }
 }

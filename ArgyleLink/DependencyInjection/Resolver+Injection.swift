@@ -10,5 +10,9 @@ import Resolver
 
 extension Resolver: ResolverRegistering {
 
-    public static func registerAllServices() {}
+    public static func registerAllServices() {
+        register { ImageCache() }
+            .implements(ImageCacheProtocol.self)
+            .scope(.shared)
+    }
 }

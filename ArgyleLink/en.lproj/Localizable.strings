@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  ArgyleLink
+
+  Created by Eszenyi Gábor on 2023. 01. 10..
+  
+*/
+
+"searchScreen.search.textField.placeholder" = "Search";
+"searchScreen.search.button.title" = "Search";

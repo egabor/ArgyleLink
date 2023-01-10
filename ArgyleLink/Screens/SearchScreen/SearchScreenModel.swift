@@ -7,4 +7,17 @@
 
 import Combine
 
-class SearchScreenModel: ObservableObject {}
+typealias SearchScreenModelProtocol = SearchViewModelProtocol
+
+class SearchScreenModel: SearchScreenModelProtocol {
+
+    @Published var searchText: String = ""
+    private (set) var isSearchFieldDisabled: Bool = false
+    private (set) var isSearchDisabled: Bool = false
+
+    init() {}
+
+    func search() {  }
+    func loadNextPage() {  }
+    func clearSearch() {  }
+}

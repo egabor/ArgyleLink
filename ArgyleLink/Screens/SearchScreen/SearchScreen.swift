@@ -11,9 +11,24 @@ struct SearchScreen: View {
 
     @StateObject private var viewModel: SearchScreenModel = .init()
 
+    // MARK: - LEVEL 0 Views: Body & Content Wrapper (Main Containers)
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        content
+        // TODO: Add loading
+        // TODO: Add alert for error handling
     }
+
+    var content: some View {
+        VStack(spacing: 0) {
+            SearchView(viewModel: viewModel)
+            Spacer()
+        }
+    }
+
+    // MARK: - LEVEL 1 Views: Main UI Elements
+
+    // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
 }
 
 struct SearchScreen_Previews: PreviewProvider {

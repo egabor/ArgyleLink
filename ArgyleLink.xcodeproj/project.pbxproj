@@ -176,6 +176,7 @@
 		625C1D7D296DD24A00897295 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				625C1D9E296DFCC700897295 /* New Group */,
 				625C1D7E296DD26000897295 /* Loading */,
 				625C1D7F296DD26800897295 /* SearchView */,
 			);
@@ -217,6 +218,13 @@
 				625C1D84296DD2B400897295 /* SearchButtonStyle.swift */,
 			);
 			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		625C1D9E296DFCC700897295 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

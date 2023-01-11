@@ -10,7 +10,7 @@ import Combine
 
 protocol CompanyListViewModelProtocol: ObservableObject {
 
-    var companies: [CompanyViewData] { get set }
+    var companies: [CompanyListItemViewModel] { get set }
     var mostRecentSearchText: String { get set }
     var isEmpty: Bool { get }
 }

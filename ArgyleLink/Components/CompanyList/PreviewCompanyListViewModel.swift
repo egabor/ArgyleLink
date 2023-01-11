@@ -9,14 +9,14 @@ import Combine
 
 class PreviewCompanyListViewModel: CompanyListViewModelProtocol {
 
-    var companies: [CompanyViewData] = []
+    var companies: [CompanyListItemViewModel] = []
     var mostRecentSearchText: String = ""
 
     var isEmpty: Bool {
         companies.isEmpty
     }
 
-    init(companies: [CompanyViewData]) {
+    init(companies: [CompanyListItemViewModel]) {
         self.companies = companies
     }
 }

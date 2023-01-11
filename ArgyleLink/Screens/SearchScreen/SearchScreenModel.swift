@@ -19,7 +19,7 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     // MARK: - CompanyListViewModelProtocol
 
-    @Published var companies: [CompanyViewData] = .previewArray
+    @Published var companies: [CompanyListItemViewModel] = .previewArray
     internal var mostRecentSearchText: String = ""
     var isEmpty: Bool {
         companies.isEmpty

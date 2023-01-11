@@ -35,7 +35,7 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
                 alignment: .leading,
                 spacing: configuration.listItemSpacing
             ) {
-                ForEach(viewModel.companies) { $0 }
+                ForEach(viewModel.companies) { CompanyListItem(viewModel: $0) }
             }
         }
     }

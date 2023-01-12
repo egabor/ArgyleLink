@@ -30,6 +30,7 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
                 list(with: viewModel.companies)
             }
         }
+        .scrollDismissesKeyboard(.immediately)
         .transition(.opacity.animation(.easeInOut))
     }
 

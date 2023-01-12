@@ -50,6 +50,7 @@
 		625C1DDA296F626300897295 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD9296F626300897295 /* Configuration.swift */; };
 		625C1DE0296F65EC00897295 /* BasicAuthorizationValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */; };
 		62B972F829706BA900443AA3 /* ErrorCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B972F729706BA900443AA3 /* ErrorCapable.swift */; };
+		62B972FA297075E900443AA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 62B972F9297075E900443AA3 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		625C1DDB296F63A300897295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthorizationValueUseCase.swift; sourceTree = "<group>"; };
 		62B972F729706BA900443AA3 /* ErrorCapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCapable.swift; sourceTree = "<group>"; };
+		62B972F9297075E900443AA3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		625C1D41296DCAA900897295 = {
 			isa = PBXGroup;
 			children = (
+				62B972F9297075E900443AA3 /* README.md */,
 				625C1D4C296DCAA900897295 /* ArgyleLink */,
 				625C1D5D296DCAAC00897295 /* ArgyleLinkTests */,
 				625C1D67296DCAAC00897295 /* ArgyleLinkUITests */,
@@ -511,6 +514,7 @@
 			files = (
 				625C1D55296DCAAC00897295 /* Preview Assets.xcassets in Resources */,
 				625C1D9B296DDAFD00897295 /* Localizable.strings in Resources */,
+				62B972FA297075E900443AA3 /* README.md in Resources */,
 				625C1D52296DCAAC00897295 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

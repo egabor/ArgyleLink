@@ -50,6 +50,19 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
     var emptyList: some View {
         VStack {
             Spacer()
+            if viewModel.hasNoResultsForKeyword {
+                noResultsState
+            } else {
+                emptyState
+            }
+            Spacer()
+        }
+    }
+
+    // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
+
+    var emptyState: some View {
+        VStack {
             Image.search
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -60,11 +73,17 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
                 .padding(.bottom)
             Text(LocalizedStringKey(viewModel.emptyListText))
                 .multilineTextAlignment(.center)
-            Spacer()
         }
     }
 
-    // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
+    var noResultsState: some View {
+        VStack {
+            Text("🤔")
+                .font(.system(size: 64))
+            Text(LocalizedStringKey(viewModel.emptyListText))
+                .multilineTextAlignment(.center)
+        }
+    }
 }
 
 extension CompanyListView {

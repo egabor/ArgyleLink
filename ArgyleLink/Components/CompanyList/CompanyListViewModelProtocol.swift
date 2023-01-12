@@ -19,6 +19,12 @@ protocol CompanyListViewModelProtocol: ObservableObject {
 
 extension CompanyListViewModelProtocol {
 
+    var hasNoResultsForKeyword: Bool {
+        mostRecentSearchText.isEmpty == false &&
+        mostRecentSearchText == searchText &&
+        companies.isEmpty
+    }
+
     var emptyListText: String {
         if mostRecentSearchText.isEmpty == false && mostRecentSearchText == searchText {
             return String(
@@ -32,4 +38,6 @@ extension CompanyListViewModelProtocol {
             return .searchScreenCompanyListInitialStateTitle
         }
     }
+
+
 }

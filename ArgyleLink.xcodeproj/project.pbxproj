@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		62107B0229703E0900CB0E2E /* GetCompaniesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62107B0129703E0900CB0E2E /* GetCompaniesUseCase.swift */; };
 		625C1D4E296DCAA900897295 /* ArgyleLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */; };
-		625C1D50296DCAA900897295 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D4F296DCAA900897295 /* ContentView.swift */; };
 		625C1D52296DCAAC00897295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D51296DCAAC00897295 /* Assets.xcassets */; };
 		625C1D55296DCAAC00897295 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D54296DCAAC00897295 /* Preview Assets.xcassets */; };
 		625C1D5F296DCAAC00897295 /* ArgyleLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D5E296DCAAC00897295 /* ArgyleLinkTests.swift */; };
@@ -39,6 +39,16 @@
 		625C1DBE296F074300897295 /* CompanyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DBD296F074300897295 /* CompanyListItem.swift */; };
 		625C1DC3296F15A900897295 /* LinkItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DC2296F15A900897295 /* LinkItemsResponse.swift */; };
 		625C1DC5296F15F200897295 /* LinkItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DC4296F15F200897295 /* LinkItemResponse.swift */; };
+		625C1DC8296F25EE00897295 /* SearchApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DC7296F25EE00897295 /* SearchApiProtocol.swift */; };
+		625C1DCA296F25F600897295 /* SearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DC9296F25F600897295 /* SearchApi.swift */; };
+		625C1DCC296F2BB400897295 /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DCB296F2BB400897295 /* BaseApi.swift */; };
+		625C1DCE296F330E00897295 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DCD296F330E00897295 /* NetworkRequest.swift */; };
+		625C1DD0296F338200897295 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DCF296F338200897295 /* HTTPMethod.swift */; };
+		625C1DD2296F33B800897295 /* BaseApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD1296F33B800897295 /* BaseApiError.swift */; };
+		625C1DD4296F33D200897295 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD3296F33D200897295 /* NetworkRequestError.swift */; };
+		625C1DD6296F36FD00897295 /* String+HTTPHeaderKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD5296F36FD00897295 /* String+HTTPHeaderKey.swift */; };
+		625C1DDA296F626300897295 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD9296F626300897295 /* Configuration.swift */; };
+		625C1DE0296F65EC00897295 /* BasicAuthorizationValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		62107B0129703E0900CB0E2E /* GetCompaniesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompaniesUseCase.swift; sourceTree = "<group>"; };
 		625C1D4A296DCAA900897295 /* ArgyleLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArgyleLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgyleLinkApp.swift; sourceTree = "<group>"; };
-		625C1D4F296DCAA900897295 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		625C1D51296DCAAC00897295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		625C1D54296DCAAC00897295 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		625C1D5A296DCAAC00897295 /* ArgyleLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgyleLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +103,18 @@
 		625C1DBD296F074300897295 /* CompanyListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListItem.swift; sourceTree = "<group>"; };
 		625C1DC2296F15A900897295 /* LinkItemsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemsResponse.swift; sourceTree = "<group>"; };
 		625C1DC4296F15F200897295 /* LinkItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemResponse.swift; sourceTree = "<group>"; };
+		625C1DC7296F25EE00897295 /* SearchApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApiProtocol.swift; sourceTree = "<group>"; };
+		625C1DC9296F25F600897295 /* SearchApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApi.swift; sourceTree = "<group>"; };
+		625C1DCB296F2BB400897295 /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
+		625C1DCD296F330E00897295 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		625C1DCF296F338200897295 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		625C1DD1296F33B800897295 /* BaseApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiError.swift; sourceTree = "<group>"; };
+		625C1DD3296F33D200897295 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
+		625C1DD5296F36FD00897295 /* String+HTTPHeaderKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+HTTPHeaderKey.swift"; sourceTree = "<group>"; };
+		625C1DD7296F5E8000897295 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		625C1DD9296F626300897295 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		625C1DDB296F63A300897295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthorizationValueUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +143,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		62107B032970432F00CB0E2E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				62107B042970433800CB0E2E /* UseCases */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		62107B042970433800CB0E2E /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				62107B0129703E0900CB0E2E /* GetCompaniesUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		625C1D41296DCAA900897295 = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +182,10 @@
 		625C1D4C296DCAA900897295 /* ArgyleLink */ = {
 			isa = PBXGroup;
 			children = (
+				62107B032970432F00CB0E2E /* Shared */,
 				625C1DC0296F112300897295 /* Network */,
+				625C1DDB296F63A300897295 /* Info.plist */,
 				625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */,
-				625C1D4F296DCAA900897295 /* ContentView.swift */,
 				625C1DB1296E189200897295 /* DependencyInjection */,
 				625C1D77296DD20500897295 /* Screens */,
 				625C1D7D296DD24A00897295 /* Components */,
@@ -154,6 +193,7 @@
 				625C1D81296DD29400897295 /* DesignSystem */,
 				625C1D51296DCAAC00897295 /* Assets.xcassets */,
 				625C1D9D296DDAFD00897295 /* Localizable.strings */,
+				625C1DD8296F623400897295 /* Configuration */,
 				625C1D53296DCAAC00897295 /* Preview Content */,
 			);
 			path = ArgyleLink;
@@ -299,7 +339,15 @@
 		625C1DC0296F112300897295 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				625C1DCD296F330E00897295 /* NetworkRequest.swift */,
+				625C1DD3296F33D200897295 /* NetworkRequestError.swift */,
+				625C1DCF296F338200897295 /* HTTPMethod.swift */,
+				625C1DCB296F2BB400897295 /* BaseApi.swift */,
+				625C1DD1296F33B800897295 /* BaseApiError.swift */,
+				625C1DD5296F36FD00897295 /* String+HTTPHeaderKey.swift */,
+				625C1DC6296F25DD00897295 /* SearchApi */,
 				625C1DC1296F120B00897295 /* Models */,
+				625C1DDC296F65A900897295 /* Utils */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -311,6 +359,32 @@
 				625C1DC4296F15F200897295 /* LinkItemResponse.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		625C1DC6296F25DD00897295 /* SearchApi */ = {
+			isa = PBXGroup;
+			children = (
+				625C1DC7296F25EE00897295 /* SearchApiProtocol.swift */,
+				625C1DC9296F25F600897295 /* SearchApi.swift */,
+			);
+			path = SearchApi;
+			sourceTree = "<group>";
+		};
+		625C1DD8296F623400897295 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				625C1DD7296F5E8000897295 /* Shared.xcconfig */,
+				625C1DD9296F626300897295 /* Configuration.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		625C1DDC296F65A900897295 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,31 +547,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				625C1D50296DCAA900897295 /* ContentView.swift in Sources */,
 				625C1DA2296DFF7D00897295 /* CompanyListViewModelProtocol.swift in Sources */,
 				625C1D8D296DD33F00897295 /* SearchView.swift in Sources */,
 				625C1DBE296F074300897295 /* CompanyListItem.swift in Sources */,
 				625C1D8F296DD3A600897295 /* SearchViewModelProtocol.swift in Sources */,
 				625C1DB6296E1E5B00897295 /* ImageCacheProtocol.swift in Sources */,
 				625C1DAD296E178000897295 /* AsyncImageView.swift in Sources */,
+				625C1DE0296F65EC00897295 /* BasicAuthorizationValueUseCase.swift in Sources */,
 				625C1DA0296DFE6900897295 /* CompanyListView.swift in Sources */,
+				625C1DD0296F338200897295 /* HTTPMethod.swift in Sources */,
+				625C1DD6296F36FD00897295 /* String+HTTPHeaderKey.swift in Sources */,
+				625C1DDA296F626300897295 /* Configuration.swift in Sources */,
 				625C1D7C296DD24500897295 /* SearchScreenModel.swift in Sources */,
 				625C1DA4296E01D900897295 /* PreviewCompanyListViewModel.swift in Sources */,
 				625C1DA6296E027F00897295 /* CompanyListItemViewModel.swift in Sources */,
 				625C1DBA296E1EAA00897295 /* AsyncImageViewModel.swift in Sources */,
+				625C1DC8296F25EE00897295 /* SearchApiProtocol.swift in Sources */,
 				625C1D98296DDA8B00897295 /* Strings.swift in Sources */,
 				625C1DB8296E1E6300897295 /* ImageCache.swift in Sources */,
 				625C1D91296DD3CE00897295 /* PreviewSearchViewModel.swift in Sources */,
+				625C1DD4296F33D200897295 /* NetworkRequestError.swift in Sources */,
 				625C1D87296DD2C100897295 /* Colors.swift in Sources */,
 				625C1D4E296DCAA900897295 /* ArgyleLinkApp.swift in Sources */,
 				625C1DC3296F15A900897295 /* LinkItemsResponse.swift in Sources */,
+				625C1DCA296F25F600897295 /* SearchApi.swift in Sources */,
+				62107B0229703E0900CB0E2E /* GetCompaniesUseCase.swift in Sources */,
 				625C1D89296DD2C900897295 /* Images.swift in Sources */,
+				625C1DCC296F2BB400897295 /* BaseApi.swift in Sources */,
 				625C1DC5296F15F200897295 /* LinkItemResponse.swift in Sources */,
 				625C1D7A296DD23800897295 /* SearchScreen.swift in Sources */,
+				625C1DD2296F33B800897295 /* BaseApiError.swift in Sources */,
 				625C1DB3296E18A600897295 /* Resolver+Injection.swift in Sources */,
 				625C1D93296DD3DE00897295 /* Loading.swift in Sources */,
 				625C1D83296DD2AA00897295 /* SearchFieldStyle.swift in Sources */,
 				625C1DBC296E240700897295 /* LoadingCapable.swift in Sources */,
+				625C1DCE296F330E00897295 /* NetworkRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,6 +631,7 @@
 /* Begin XCBuildConfiguration section */
 		625C1D6C296DCAAC00897295 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -595,7 +680,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -607,6 +692,7 @@
 		};
 		625C1D6D296DCAAC00897295 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -649,7 +735,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -661,6 +747,7 @@
 		};
 		625C1D6F296DCAAC00897295 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -670,6 +757,7 @@
 				DEVELOPMENT_TEAM = QT666FZ6Y2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArgyleLink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -689,6 +777,7 @@
 		};
 		625C1D70296DCAAC00897295 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -698,6 +787,7 @@
 				DEVELOPMENT_TEAM = QT666FZ6Y2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ArgyleLink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -717,6 +807,7 @@
 		};
 		625C1D72296DCAAC00897295 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -737,6 +828,7 @@
 		};
 		625C1D73296DCAAC00897295 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -757,6 +849,7 @@
 		};
 		625C1D75296DCAAC00897295 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -775,6 +868,7 @@
 		};
 		625C1D76296DCAAC00897295 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 625C1DD7296F5E8000897295 /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

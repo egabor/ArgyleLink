@@ -15,7 +15,6 @@ struct SearchScreen: View {
 
     var body: some View {
         content
-            .loading(viewModel.isLoading)
         // TODO: Add alert for error handling
     }
 
@@ -23,6 +22,7 @@ struct SearchScreen: View {
         VStack(spacing: 0) {
             SearchView(viewModel: viewModel)
             CompanyListView(viewModel: viewModel)
+                .scrollDismissesKeyboard(.interactively)
         }
     }
 

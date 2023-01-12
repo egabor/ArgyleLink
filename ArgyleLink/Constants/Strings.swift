@@ -11,6 +11,7 @@ import Foundation
 extension String {
     static let searchScreenSearchTextFieldPlaceholder = "searchScreen.search.textField.placeholder"
     static let searchScreenCompanyListInitialStateTitle = "searchScreen.companyList.initialState.title"
+    static let searchScreenCompanyListInitialStateTypeMoreTitle = "searchScreen.companyList.initialStateTypeMore.title"
     static let searchScreenCompanyListNoResultsStateTitle = "searchScreen.companyList.noResultsState.title"
 
     static let alertErrorTitle = "alert.error.title"

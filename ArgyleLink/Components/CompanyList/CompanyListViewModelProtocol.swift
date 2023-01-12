@@ -28,21 +28,28 @@ extension CompanyListViewModelProtocol {
 
     var emptyListText: String {
         if mostRecentSearchText.isEmpty == false && mostRecentSearchText == searchText {
-            return String(
-                format: NSLocalizedString(
-                    .searchScreenCompanyListNoResultsStateTitle,
-                    comment: ""
-                ),
-                mostRecentSearchText
+            return localizedString(
+                .searchScreenCompanyListNoResultsStateTitle,
+                with: mostRecentSearchText
             )
         } else {
-            return String(
-                format: NSLocalizedString(
+            if searchText.isEmpty {
+                return localizedString(
                     .searchScreenCompanyListInitialStateTitle,
-                    comment: ""
-                ),
-                minimumInputCharacters
-            )
+                    with: minimumInputCharacters
+                )
+            } else {
+                return localizedString(
+                    .searchScreenCompanyListInitialStateTypeMoreTitle,
+                    with: minimumInputCharacters - searchText.count
+                )
+            }
         }
+    }
+
+    func localizedString(_ string: String, with param: Any) -> String {
+        String(format: NSLocalizedString(string, comment: ""),
+               minimumInputCharacters - searchText.count
+        )
     }
 }

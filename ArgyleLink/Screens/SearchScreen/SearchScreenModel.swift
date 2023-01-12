@@ -109,5 +109,6 @@ class SearchScreenModel: SearchScreenModelProtocol {
         } catch {
             // TODO: show alert
         }
+        mostRecentSearchText = searchText
     }
 }

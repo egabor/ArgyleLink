@@ -1,0 +1,13 @@
+//
+//  Shared.xcconfig
+//  ArgyleLink
+//
+//  Created by Eszenyi Gábor on 2023. 01. 11..
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY_ID =
+
+API_KEY_SECRET =

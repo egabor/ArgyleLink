@@ -7,7 +7,7 @@
 */
 
 "searchScreen.search.textField.placeholder" = "Search";
-"searchScreen.companyList.initialState.title" = "Type something to search";
+"searchScreen.companyList.initialState.title" = "Type at least %d characters to search";
 "searchScreen.companyList.noResultsState.title" = "No results for the expression: %@\nTry with another keyword";
 
 "alert.error.title" = "Error";

@@ -13,9 +13,11 @@ class PreviewCompanyListViewModel: CompanyListViewModelProtocol {
     var searchText: String = ""
     var mostRecentSearchText: String = ""
     var isLoading: Bool = false
-
     var isEmpty: Bool {
         companies.isEmpty
+    }
+    var minimumInputCharacters: Int {
+        2
     }
 
     init(companies: [CompanyListItemViewModel]) {

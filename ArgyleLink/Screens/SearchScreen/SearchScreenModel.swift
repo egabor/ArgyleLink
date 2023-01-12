@@ -17,7 +17,6 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     // MARK: - Constants
 
-    let minimumInputCharacters = 2
     let debounceTimeIntervalInMilliseconds = 500
 
     // MARK: - SearchViewModelProtocol
@@ -31,6 +30,9 @@ class SearchScreenModel: SearchScreenModelProtocol {
     @Published internal var mostRecentSearchText: String = ""
     var isEmpty: Bool {
         companies.isEmpty
+    }
+    var minimumInputCharacters: Int {
+        2
     }
 
     // MARK: - LoadingCapable

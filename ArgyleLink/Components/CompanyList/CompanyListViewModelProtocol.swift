@@ -15,6 +15,7 @@ protocol CompanyListViewModelProtocol: ObservableObject {
     var mostRecentSearchText: String { get set }
     var isLoading: Bool { get set }
     var isEmpty: Bool { get }
+    var minimumInputCharacters: Int { get }
 }
 
 extension CompanyListViewModelProtocol {
@@ -35,9 +36,13 @@ extension CompanyListViewModelProtocol {
                 mostRecentSearchText
             )
         } else {
-            return .searchScreenCompanyListInitialStateTitle
+            return String(
+                format: NSLocalizedString(
+                    .searchScreenCompanyListInitialStateTitle,
+                    comment: ""
+                ),
+                minimumInputCharacters
+            )
         }
     }
-
-
 }

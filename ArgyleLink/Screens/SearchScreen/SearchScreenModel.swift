@@ -10,7 +10,7 @@ import Combine
 import Resolver
 
 typealias SearchScreenModelProtocol = SearchViewModelProtocol &
-CompanyListViewModelProtocol & LoadingCapable
+CompanyListViewModelProtocol & LoadingCapable & ErrorCapable
 
 class SearchScreenModel: SearchScreenModelProtocol {
 
@@ -35,6 +35,9 @@ class SearchScreenModel: SearchScreenModelProtocol {
     // MARK: - LoadingCapable
 
     @Published var isLoading: Bool = false
+
+    @Published var showError: Bool = false
+    @Published var errorMessage: String = ""
 
     private var cancellables = Set<AnyCancellable>()
     private var searchCancellable: AnyCancellable?
@@ -83,6 +86,10 @@ class SearchScreenModel: SearchScreenModelProtocol {
                 self?.mostRecentSearchText = ""
             }
             .store(in: &cancellables)
+
+        $errorMessage
+            .map { $0.isEmpty == false }
+            .assign(to: &$showError)
     }
 
     func isAllowedToPerformSearch(_ searchText: String) -> Bool {
@@ -104,13 +111,13 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     func performSearch(_ searchText: String) {
         searchCancellable = getCompanies(for: searchText)
-            .sink { completion in
-                if case let .failure(error) = completion {
-                    print("error: \(error)")
+            .sink { [weak self] completion in
+                if case .failure = completion {
+                    self?.errorMessage = .alertErrorGeneralMessage
                 }
+                self?.mostRecentSearchText = searchText
             } receiveValue: { [weak self] results in
                 self?.companies = results
-                self?.mostRecentSearchText = searchText
             }
     }
 }

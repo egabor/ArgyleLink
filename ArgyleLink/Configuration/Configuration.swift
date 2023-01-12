@@ -9,7 +9,7 @@ import Foundation
 
 enum Configuration: String {
     static let baseUrl = "https://api-sandbox.argyle.com/"
-    
+
     case apiKey = "API_KEY_ID"
     case apiSecret = "API_KEY_SECRET"
 

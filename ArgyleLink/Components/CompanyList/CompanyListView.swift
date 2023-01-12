@@ -20,14 +20,17 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
 
     @ViewBuilder
     var content: some View {
-        if viewModel.isLoading {
-            list(with: .placeholderData)
-                .redacted(reason: .placeholder)
-        } else if viewModel.isEmpty {
-            emptyList
-        } else {
-            list(with: viewModel.companies)
+        Group {
+            if viewModel.isLoading {
+                list(with: .placeholderData)
+                    .redacted(reason: .placeholder)
+            } else if viewModel.isEmpty {
+                emptyList
+            } else {
+                list(with: viewModel.companies)
+            }
         }
+        .transition(.opacity.animation(.easeInOut))
     }
 
     // MARK: - LEVEL 1 Views: Main UI Elements
@@ -41,6 +44,7 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
                 ForEach(data) { CompanyListItem(viewModel: $0) }
             }
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 
     var emptyList: some View {

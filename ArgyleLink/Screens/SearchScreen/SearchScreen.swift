@@ -15,20 +15,32 @@ struct SearchScreen: View {
 
     var body: some View {
         content
-        // TODO: Add alert for error handling
+            .alert(
+                LocalizedStringKey(viewModel.errorAlertTitle),
+                isPresented: $viewModel.showError,
+                actions: errorAlertActions,
+                message: errorAlertMessage
+            )
     }
 
     var content: some View {
         VStack(spacing: 0) {
             SearchView(viewModel: viewModel)
             CompanyListView(viewModel: viewModel)
-                .scrollDismissesKeyboard(.interactively)
         }
     }
 
     // MARK: - LEVEL 1 Views: Main UI Elements
 
     // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
+
+    func errorAlertActions() -> some View {
+        Text(LocalizedStringKey(viewModel.errorAlertOkButtonTitle))
+    }
+
+    func errorAlertMessage() -> some View {
+        Text(LocalizedStringKey(viewModel.errorMessage))
+    }
 }
 
 struct SearchScreen_Previews: PreviewProvider {

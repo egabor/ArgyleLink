@@ -12,5 +12,9 @@ extension String {
     static let searchScreenSearchTextFieldPlaceholder = "searchScreen.search.textField.placeholder"
     static let searchScreenCompanyListInitialStateTitle = "searchScreen.companyList.initialState.title"
     static let searchScreenCompanyListNoResultsStateTitle = "searchScreen.companyList.noResultsState.title"
+
+    static let alertErrorTitle = "alert.error.title"
+    static let alertErrorGeneralMessage = "alert.error.general.message"
+    static let alertOkButtonTitle = "alert.ok.button.title"
 }
 // swiftlint:enable identifier_name

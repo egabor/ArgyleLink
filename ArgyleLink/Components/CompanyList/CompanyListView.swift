@@ -45,7 +45,6 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
                 ForEach(data) { CompanyListItem(viewModel: $0) }
             }
         }
-        .scrollDismissesKeyboard(.interactively)
     }
 
     var emptyList: some View {

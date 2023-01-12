@@ -18,7 +18,7 @@ struct SearchFieldStyle: ViewModifier {
             .accentColor(.searchFieldCaret)
             .font(configuration.font)
             .foregroundColor(.searchFieldText)
-            .submitLabel(.search)
+            .submitLabel(.done)
     }
 }
 

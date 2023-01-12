@@ -39,7 +39,7 @@ struct SearchScreen: View {
     }
 
     func errorAlertMessage() -> some View {
-        Text(LocalizedStringKey(viewModel.errorMessage))
+        Text(viewModel.errorMessage)
     }
 }
 

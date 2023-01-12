@@ -39,9 +39,9 @@ struct CompanyListItem: View {
 
     @ViewBuilder
     var imageView: some View {
-        if let urlString = viewModel.logoUrl, let url = URL(string: urlString) {
+        if let urlString = viewModel.logoUrl {
             AsyncImageView(
-                url: url,
+                url: URL(string: urlString),
                 placeholder: placeholder,
                 image: image
             )
@@ -52,7 +52,7 @@ struct CompanyListItem: View {
                     width: configuration.imageSize,
                     height: configuration.imageSize
                 )
-                .background(Color.blue)
+                .foregroundColor(Color.black.opacity(0.1))
                 .cornerRadius(configuration.imageCornerRadius)
         }
     }
@@ -61,11 +61,8 @@ struct CompanyListItem: View {
         Text(viewModel.name)
     }
 
-    @ViewBuilder
     var typeTag: some View {
-        if let kind = viewModel.kind {
-            Text(kind)
-        }
+        Text(viewModel.kind)
     }
 
     // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents

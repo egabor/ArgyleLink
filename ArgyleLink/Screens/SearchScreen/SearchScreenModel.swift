@@ -84,6 +84,7 @@ class SearchScreenModel: SearchScreenModelProtocol {
         $searchText
             .filter { $0.isEmpty }
             .sink { [weak self] _ in
+                self?.logger.info("Search input cleared.")
                 self?.searchCancellable?.cancel()
                 self?.companies = []
                 self?.mostRecentSearchText = ""
@@ -118,7 +119,7 @@ class SearchScreenModel: SearchScreenModelProtocol {
             .sink { [weak self] completion in
                 if case let .failure(error) = completion {
                     self?.logger.error("Error occurred during the search: \(error.localizedDescription)")
-                    self?.errorMessage = .alertErrorGeneralMessage
+                    self?.errorMessage = error.localizedDescription
                 }
                 self?.mostRecentSearchText = searchText
             } receiveValue: { [weak self] results in

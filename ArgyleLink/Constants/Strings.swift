@@ -14,7 +14,6 @@ extension String {
     static let searchScreenCompanyListNoResultsStateTitle = "searchScreen.companyList.noResultsState.title"
 
     static let alertErrorTitle = "alert.error.title"
-    static let alertErrorGeneralMessage = "alert.error.general.message"
     static let alertOkButtonTitle = "alert.ok.button.title"
 }
 // swiftlint:enable identifier_name

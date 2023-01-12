@@ -10,7 +10,7 @@ import SwiftUI
 struct CompanyListItemViewModel: Identifiable {
     let id: String
     let name: String
-    let kind: String?
+    let kind: String
     let logoUrl: String?
 }
 

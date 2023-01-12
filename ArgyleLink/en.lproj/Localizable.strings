@@ -11,5 +11,4 @@
 "searchScreen.companyList.noResultsState.title" = "No results for the expression: %@\nTry with another keyword";
 
 "alert.error.title" = "Error";
-"alert.error.general.message" = "Something went wrong.";
 "alert.ok.button.title" = "Ok";

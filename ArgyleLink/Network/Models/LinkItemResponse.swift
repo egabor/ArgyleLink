@@ -23,5 +23,5 @@ struct LinkItemResponse: Decodable {
     let id: String
     let name: String
     let kind: Kind
-    let logoUrl: String
+    let logoUrl: String?
 }

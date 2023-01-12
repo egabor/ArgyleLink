@@ -58,6 +58,7 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
             text: $viewModel.searchText
         )
         .focused($isFocused)
+        .autocorrectionDisabled()
     }
 
     @ViewBuilder

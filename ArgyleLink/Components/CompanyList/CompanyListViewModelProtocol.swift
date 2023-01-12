@@ -41,15 +41,13 @@ extension CompanyListViewModelProtocol {
             } else {
                 return localizedString(
                     .searchScreenCompanyListInitialStateTypeMoreTitle,
-                    with: minimumInputCharacters - searchText.count
+                    with: max(0, minimumInputCharacters - searchText.count)
                 )
             }
         }
     }
 
-    func localizedString(_ string: String, with param: Any) -> String {
-        String(format: NSLocalizedString(string, comment: ""),
-               minimumInputCharacters - searchText.count
-        )
+    func localizedString(_ string: String, with param: CVarArg) -> String {
+        String(format: NSLocalizedString(string, comment: ""), param)
     }
 }

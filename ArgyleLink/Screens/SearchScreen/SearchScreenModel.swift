@@ -81,10 +81,12 @@ class SearchScreenModel: SearchScreenModelProtocol {
             }
             .assign(to: &$isLoading)
 
-        // This publisher is responsible for resetting the screen immediately when the user clears the search field.
+        // This publisher is responsible for resetting the screen.
 
         $searchText
-            .filter { $0.isEmpty }
+            .filter { [weak self] searchText in
+                searchText.count < self?.minimumInputCharacters ?? 1
+            }
             .sink { [weak self] _ in
                 self?.searchCancellable?.cancel()
                 self?.companies = []

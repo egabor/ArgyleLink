@@ -33,28 +33,25 @@ class BaseApi {
             .shared
             .dataTaskPublisher(for: urlRequest)
             .subscribe(on: BaseApi.networkQueue)
-            .tryMap { element -> Data in
+            .tryMap { [weak self] element -> Data in
                 guard let response = element.response as? HTTPURLResponse else {
                     throw BaseApiError.urlResponseIsNil
                 }
 
                 guard 200...299 ~= response.statusCode else {
-                    guard let responseString = String(
-                        data: element.data,
-                        encoding: .utf8
-                    ) else {
-                        throw BaseApiError.invalidResponseBody(element.data)
+                    guard let errorResponse = try? self?.decoder.decode(ErrorResponse.self, from: element.data) else {
+                        throw BaseApiError.invalidStatusCode(response.statusCode)
                     }
-                    throw BaseApiError.invalidStatusCode(response.statusCode, responseString)
+                    throw BaseApiError.decoded(errorResponse)
                 }
                 return element.data
             }
-            .mapError { error -> BaseApiError in
-                guard let error = error as? BaseApiError else {
-                    return .other(error.localizedDescription)
-                }
-                return error
-            }
+//            .mapError { error -> BaseApiError in
+//                guard let error = error as? BaseApiError else {
+//                    return .other(error.localizedDescription)
+//                }
+//                return error
+//            }
             .decode(type: D.self, decoder: decoder)
             .eraseToAnyPublisher()
     }

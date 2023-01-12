@@ -10,7 +10,18 @@ import Foundation
 enum BaseApiError: Error {
     case urlRequestIsNil
     case urlResponseIsNil
-    case invalidStatusCode(Int, String?)
-    case invalidResponseBody(Data?)
+    case invalidStatusCode(Int)
     case other(String?)
+    case decoded(ErrorResponse)
+}
+
+extension BaseApiError: LocalizedError {
+
+    public var errorDescription: String? {
+        switch self {
+        case .other(let string): return string
+        case .decoded(let response): return response.detail
+        default: return nil
+        }
+    }
 }

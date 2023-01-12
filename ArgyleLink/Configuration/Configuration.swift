@@ -15,6 +15,12 @@ enum Configuration: String {
     case apiSecret = "API_KEY_SECRET"
 
     var value: String {
-        Bundle.main.infoDictionary?[rawValue] as? String ?? ""
+        guard let configurationValue = Bundle.main.infoDictionary?[rawValue] as? String,
+              configurationValue.isEmpty == false
+        else {
+            assertionFailure(file: "Configuration value cannot be nil or empty.")
+            return ""
+        }
+        return configurationValue
     }
 }

@@ -84,7 +84,6 @@ class SearchScreenModel: SearchScreenModelProtocol {
         $searchText
             .filter { $0.isEmpty }
             .sink { [weak self] _ in
-                self?.logger.info("Search input cleared.")
                 self?.searchCancellable?.cancel()
                 self?.companies = []
                 self?.mostRecentSearchText = ""

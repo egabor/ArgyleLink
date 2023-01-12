@@ -8,6 +8,8 @@ After the packages are loaded you can run the project.
 
 ## Architecture
 
+MVVM architecture is used in the project along with SwiftUI and Combine. For shared/reusable business logic use cases were used.
+
 ## Used libraries
 
 - Resolver

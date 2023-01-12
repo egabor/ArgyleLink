@@ -39,9 +39,9 @@ struct CompanyListItem: View {
 
     @ViewBuilder
     var imageView: some View {
-        if let urlString = viewModel.logoUrl {
+        if let urlString = viewModel.logoUrl, let url = URL(string: urlString) {
             AsyncImageView(
-                url: URL(string: urlString),
+                url: url,
                 placeholder: placeholder,
                 image: image
             )

@@ -12,7 +12,7 @@ import Logging
 extension Resolver: ResolverRegistering {
 
     public static func registerAllServices() {
-        registerNetworkServices()
+        registerNetworkServicesAndHelpers()
 
         register { Logger(label: Configuration.loggerLabel) }
             .scope(.shared)
@@ -27,7 +27,7 @@ extension Resolver: ResolverRegistering {
         .implements(GetCompaniesUseCaseProtocol.self)
     }
 
-    private static func registerNetworkServices() {
+    private static func registerNetworkServicesAndHelpers() {
         register { _ in
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase

@@ -22,7 +22,6 @@
 		625C1D8D296DD33F00897295 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D8C296DD33F00897295 /* SearchView.swift */; };
 		625C1D8F296DD3A600897295 /* SearchViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D8E296DD3A600897295 /* SearchViewModelProtocol.swift */; };
 		625C1D91296DD3CE00897295 /* PreviewSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D90296DD3CE00897295 /* PreviewSearchViewModel.swift */; };
-		625C1D93296DD3DE00897295 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D92296DD3DE00897295 /* Loading.swift */; };
 		625C1D98296DDA8B00897295 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D97296DDA8B00897295 /* Strings.swift */; };
 		625C1D9B296DDAFD00897295 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D9D296DDAFD00897295 /* Localizable.strings */; };
 		625C1DA0296DFE6900897295 /* CompanyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D9F296DFE6900897295 /* CompanyListView.swift */; };
@@ -51,6 +50,7 @@
 		625C1DE0296F65EC00897295 /* BasicAuthorizationValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */; };
 		62B972F829706BA900443AA3 /* ErrorCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B972F729706BA900443AA3 /* ErrorCapable.swift */; };
 		62B972FA297075E900443AA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 62B972F9297075E900443AA3 /* README.md */; };
+		62B972FD2970771200443AA3 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 62B972FC2970771200443AA3 /* Logging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +89,6 @@
 		625C1D8C296DD33F00897295 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		625C1D8E296DD3A600897295 /* SearchViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelProtocol.swift; sourceTree = "<group>"; };
 		625C1D90296DD3CE00897295 /* PreviewSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSearchViewModel.swift; sourceTree = "<group>"; };
-		625C1D92296DD3DE00897295 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		625C1D97296DDA8B00897295 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		625C1D9C296DDAFD00897295 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		625C1D9F296DFE6900897295 /* CompanyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListView.swift; sourceTree = "<group>"; };
@@ -126,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B972FD2970771200443AA3 /* Logging in Frameworks */,
 				625C1DB0296E187D00897295 /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,18 +252,9 @@
 			children = (
 				625C1DAB296E176E00897295 /* AsyncImageView */,
 				625C1D9E296DFCC700897295 /* CompanyList */,
-				625C1D7E296DD26000897295 /* Loading */,
 				625C1D7F296DD26800897295 /* SearchView */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		625C1D7E296DD26000897295 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-				625C1D92296DD3DE00897295 /* Loading.swift */,
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 		625C1D7F296DD26800897295 /* SearchView */ = {
@@ -420,6 +411,7 @@
 			name = ArgyleLink;
 			packageProductDependencies = (
 				625C1DAF296E187D00897295 /* Resolver */,
+				62B972FC2970771200443AA3 /* Logging */,
 			);
 			productName = ArgyleLink;
 			productReference = 625C1D4A296DCAA900897295 /* ArgyleLink.app */;
@@ -495,6 +487,7 @@
 			mainGroup = 625C1D41296DCAA900897295;
 			packageReferences = (
 				625C1DAE296E187D00897295 /* XCRemoteSwiftPackageReference "Resolver" */,
+				62B972FB2970771200443AA3 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = 625C1D4B296DCAA900897295 /* Products */;
 			projectDirPath = "";
@@ -593,7 +586,6 @@
 				625C1D7A296DD23800897295 /* SearchScreen.swift in Sources */,
 				625C1DD2296F33B800897295 /* BaseApiError.swift in Sources */,
 				625C1DB3296E18A600897295 /* Resolver+Injection.swift in Sources */,
-				625C1D93296DD3DE00897295 /* Loading.swift in Sources */,
 				625C1D83296DD2AA00897295 /* SearchFieldStyle.swift in Sources */,
 				625C1DBC296E240700897295 /* LoadingCapable.swift in Sources */,
 				625C1DCE296F330E00897295 /* NetworkRequest.swift in Sources */,
@@ -951,6 +943,14 @@
 				version = 1.5.0;
 			};
 		};
+		62B972FB2970771200443AA3 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "http://github.com/apple/swift-log";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -958,6 +958,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 625C1DAE296E187D00897295 /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
+		};
+		62B972FC2970771200443AA3 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62B972FB2970771200443AA3 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

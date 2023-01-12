@@ -7,15 +7,24 @@
 
 import Foundation
 import Resolver
+import Logging
 
 extension Resolver: ResolverRegistering {
 
     public static func registerAllServices() {
         registerNetworkServices()
 
+        register { Logger(label: Configuration.loggerLabel) }
+            .scope(.shared)
+
         register { ImageCache() }
             .implements(ImageCacheProtocol.self)
             .scope(.shared)
+
+        register { _ in
+            GetCompaniesUseCase()
+        }
+        .implements(GetCompaniesUseCaseProtocol.self)
     }
 
     private static func registerNetworkServices() {
@@ -30,11 +39,6 @@ extension Resolver: ResolverRegistering {
         }
         .implements(SearchApiProtocol.self)
         .scope(.shared)
-
-        register { _ in
-            GetCompaniesUseCase()
-        }
-        .implements(GetCompaniesUseCaseProtocol.self)
 
         register { BasicAuthorizationValueUseCase() }
             .implements(BasicAuthorizationValueUseCaseProtocol.self)

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Resolver
+import Logging
 
 typealias SearchScreenModelProtocol = SearchViewModelProtocol &
 CompanyListViewModelProtocol & LoadingCapable & ErrorCapable
@@ -42,9 +43,11 @@ class SearchScreenModel: SearchScreenModelProtocol {
     private var cancellables = Set<AnyCancellable>()
     private var searchCancellable: AnyCancellable?
 
+    @Injected private var logger: Logger
     @Injected private var getCompanies: GetCompaniesUseCaseProtocol
 
     init() {
+        logger.info("\(Self.self) initialized.")
         setupPublishers()
     }
 
@@ -110,13 +113,16 @@ class SearchScreenModel: SearchScreenModelProtocol {
     }
 
     func performSearch(_ searchText: String) {
+        logger.info("Starting search with expression: \(searchText)")
         searchCancellable = getCompanies(for: searchText)
             .sink { [weak self] completion in
-                if case .failure = completion {
+                if case let .failure(error) = completion {
+                    self?.logger.error("Error occurred during the search: \(error.localizedDescription)")
                     self?.errorMessage = .alertErrorGeneralMessage
                 }
                 self?.mostRecentSearchText = searchText
             } receiveValue: { [weak self] results in
+                self?.logger.info("Received search results. Count: \(results.count)")
                 self?.companies = results
             }
     }

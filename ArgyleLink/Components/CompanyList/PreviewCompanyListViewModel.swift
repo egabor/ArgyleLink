@@ -10,7 +10,9 @@ import Combine
 class PreviewCompanyListViewModel: CompanyListViewModelProtocol {
 
     var companies: [CompanyListItemViewModel] = []
+    var searchText: String = ""
     var mostRecentSearchText: String = ""
+    var isLoading: Bool = false
 
     var isEmpty: Bool {
         companies.isEmpty

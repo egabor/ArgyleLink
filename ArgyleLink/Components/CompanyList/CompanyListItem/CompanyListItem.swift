@@ -41,7 +41,7 @@ struct CompanyListItem: View {
     var imageView: some View {
         AsyncImageView(
             url: URL(string: viewModel.logoUrl),
-            placeholder: placeholderProgressView,
+            placeholder: placeholder,
             image: image
         )
         .cornerRadius(configuration.imageCornerRadius)
@@ -57,7 +57,7 @@ struct CompanyListItem: View {
 
     // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
 
-    func placeholderProgressView() -> some View {
+    func placeholder() -> some View {
         ProgressView()
             .frame(
                 width: configuration.imageSize,

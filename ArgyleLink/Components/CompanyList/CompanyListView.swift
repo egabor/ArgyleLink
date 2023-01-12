@@ -20,22 +20,25 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
 
     @ViewBuilder
     var content: some View {
-        if viewModel.isEmpty {
+        if viewModel.isLoading {
+            list(with: .placeholderData)
+                .redacted(reason: .placeholder)
+        } else if viewModel.isEmpty {
             emptyList
         } else {
-            list
+            list(with: viewModel.companies)
         }
     }
 
     // MARK: - LEVEL 1 Views: Main UI Elements
 
-    var list: some View {
+    func list(with data: [CompanyListItemViewModel]) -> some View {
         ScrollView {
             LazyVStack(
                 alignment: .leading,
                 spacing: configuration.listItemSpacing
             ) {
-                ForEach(viewModel.companies) { CompanyListItem(viewModel: $0) }
+                ForEach(data) { CompanyListItem(viewModel: $0) }
             }
         }
     }

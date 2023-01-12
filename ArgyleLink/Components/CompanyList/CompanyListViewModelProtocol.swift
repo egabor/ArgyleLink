@@ -11,14 +11,16 @@ import Combine
 protocol CompanyListViewModelProtocol: ObservableObject {
 
     var companies: [CompanyListItemViewModel] { get set }
+    var searchText: String { get set }
     var mostRecentSearchText: String { get set }
+    var isLoading: Bool { get set }
     var isEmpty: Bool { get }
 }
 
 extension CompanyListViewModelProtocol {
 
     var emptyListText: String {
-        guard mostRecentSearchText.isEmpty else {
+        if mostRecentSearchText.isEmpty == false && mostRecentSearchText == searchText {
             return String(
                 format: NSLocalizedString(
                     .searchScreenCompanyListNoResultsStateTitle,
@@ -26,7 +28,8 @@ extension CompanyListViewModelProtocol {
                 ),
                 mostRecentSearchText
             )
+        } else {
+            return .searchScreenCompanyListInitialStateTitle
         }
-        return .searchScreenCompanyListInitialStateTitle
     }
 }

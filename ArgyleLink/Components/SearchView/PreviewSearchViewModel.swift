@@ -10,6 +10,7 @@ import Combine
 class PreviewSearchViewModel: SearchViewModelProtocol {
 
     var searchText: String = ""
+    var mostRecentSearchText: String = ""
     private (set) var isSearchFieldDisabled: Bool = false
 
     init() {}

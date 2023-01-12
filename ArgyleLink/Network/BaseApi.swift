@@ -15,6 +15,7 @@ class BaseApi {
     var headers: [String: String] = [:]
     var cancellables = Set<AnyCancellable>()
 
+    private static let networkQueue = DispatchQueue(label: "network", qos: .utility)
     let baseUrl: String
 
     init(baseUrl: String) {
@@ -31,7 +32,7 @@ class BaseApi {
         return URLSession
             .shared
             .dataTaskPublisher(for: urlRequest)
-            .subscribe(on: DispatchQueue(label: "network", qos: .utility))
+            .subscribe(on: BaseApi.networkQueue)
             .tryMap { element -> Data in
                 guard let response = element.response as? HTTPURLResponse else {
                     throw BaseApiError.urlResponseIsNil
@@ -56,46 +57,5 @@ class BaseApi {
             }
             .decode(type: D.self, decoder: decoder)
             .eraseToAnyPublisher()
-    }
-
-    func buildRequest<D: Decodable>(
-        with requestData: NetworkRequest
-    ) async throws -> D {
-        do {
-            return try await asyncNetworkRequest(with: requestData)
-        } catch let error as BaseApiError {
-            throw error
-        } catch let error {
-            throw BaseApiError.other(error.localizedDescription)
-        }
-    }
-
-    private func asyncNetworkRequest<D: Decodable>(
-        with requestData: NetworkRequest
-    ) async throws -> D {
-        try await withCheckedThrowingContinuation { continuation in
-            networkRequestPublisher(with: requestData)
-                .sink(
-                    receiveCompletion: { [weak self] completion in self?.handleCompletion(completion, continuation) },
-                    receiveValue: { [weak self] value in self?.handleValue(value, continuation) }
-                )
-                .store(in: &cancellables)
-        }
-    }
-
-    private func handleCompletion<D: Decodable, E: Error>(
-        _ completion: Subscribers.Completion<E>,
-        _ continuation: CheckedContinuation<D, E>
-    ) {
-        if case .failure(let error) = completion {
-            continuation.resume(throwing: error)
-        }
-    }
-
-    private func handleValue<D: Decodable, E: Error>(
-        _ value: D,
-        _ continuation: CheckedContinuation<D, E>
-    ) {
-        continuation.resume(returning: value)
     }
 }

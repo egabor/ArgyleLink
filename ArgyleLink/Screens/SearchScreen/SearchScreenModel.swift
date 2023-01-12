@@ -36,7 +36,8 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     @Published var isLoading: Bool = false
 
-    var cancellables = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
+    private var searchCancellable: AnyCancellable?
 
     @Injected private var getCompanies: GetCompaniesUseCaseProtocol
 
@@ -46,7 +47,7 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     private func setupPublishers() {
 
-        let searchPublisher = Publishers.CombineLatest($searchText, $mostRecentSearchText)
+        Publishers.CombineLatest($searchText, $mostRecentSearchText)
             .compactMap { [weak self] searchText, mostRecentSearchText -> (Bool, String)? in
                 self?.searchParameters(searchText, mostRecentSearchText)
             }
@@ -56,12 +57,10 @@ class SearchScreenModel: SearchScreenModelProtocol {
             )
             .filter { (shouldStartSearch, _) in shouldStartSearch }
             .map { $1 }
-
-        searchPublisher
             .sink(
                 receiveValue: { [weak self] text in
                     guard let self else { return }
-                    Task { await self.performSearch(with: text) }
+                    self.performSearch(text)
                 }
             )
             .store(in: &cancellables)
@@ -79,6 +78,7 @@ class SearchScreenModel: SearchScreenModelProtocol {
         $searchText
             .filter { $0.isEmpty }
             .sink { [weak self] _ in
+                self?.searchCancellable?.cancel()
                 self?.companies = []
                 self?.mostRecentSearchText = ""
             }
@@ -102,13 +102,15 @@ class SearchScreenModel: SearchScreenModelProtocol {
         return (shouldStartSearch, searchText)
     }
 
-    @MainActor
-    func performSearch(with searchText: String) async {
-        do {
-            companies = try await getCompanies(for: searchText)
-        } catch {
-            // TODO: show alert
-        }
-        mostRecentSearchText = searchText
+    func performSearch(_ searchText: String) {
+        searchCancellable = getCompanies(for: searchText)
+            .sink { completion in
+                if case let .failure(error) = completion {
+                    print("error: \(error)")
+                }
+            } receiveValue: { [weak self] results in
+                self?.companies = results
+                self?.mostRecentSearchText = searchText
+            }
     }
 }

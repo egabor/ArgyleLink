@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Combine
 
 protocol SearchApiProtocol {
 
-    func getLinkItems(for searchExpression: String, limit: Int) async throws -> LinkItemsResponse
+    func getLinkItems(for searchExpression: String, limit: Int) -> AnyPublisher<LinkItemsResponse, Error>
 }

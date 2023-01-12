@@ -7,12 +7,17 @@
 
 import Foundation
 import Resolver
+import Combine
 
 class SearchApi: BaseApi, SearchApiProtocol {
 
     @Injected private var authorizationHeaderValue: BasicAuthorizationValueUseCaseProtocol
 
-    func getLinkItems(for searchExpression: String, limit: Int) async throws -> LinkItemsResponse {
+    func getLinkItems(for searchExpression: String, limit: Int) -> AnyPublisher<LinkItemsResponse, Error> {
+        networkRequestPublisher(with: getLinkItemsRequest(for: searchExpression, limit: limit))
+    }
+
+    private func getLinkItemsRequest(for searchExpression: String, limit: Int) -> NetworkRequest {
         var customHeaders = headers
         customHeaders[.httpHeaderKeyAuthorization] = authorizationHeaderValue(
             username: Configuration.apiKey.value,
@@ -23,7 +28,6 @@ class SearchApi: BaseApi, SearchApiProtocol {
             .init(name: "limit", value: String(limit))
         ]
 
-        let request = NetworkRequest(baseUrl, "v1/search/link-items", .get, customHeaders, queryItems: queryItems)
-        return try await buildRequest(with: request)
+        return NetworkRequest(baseUrl, "v1/search/link-items", .get, customHeaders, queryItems: queryItems)
     }
 }

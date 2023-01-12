@@ -8,6 +8,7 @@
 import Foundation
 
 struct NetworkRequest {
+
     let baseUrl: String
     let path: String
     let method: HTTPMethod
@@ -26,16 +27,14 @@ struct NetworkRequest {
         urlComponents?.url
     }
 
-    var unsafeURL: URL {
-        urlComponents!.url!
-    }
-
-    init(_ baseUrl: String,
-         _ path: String,
-         _ method: HTTPMethod,
-         _ headers: [String: String]? = nil,
-         queryItems: [URLQueryItem]? = nil,
-         body: Data? = nil) {
+    init(
+        _ baseUrl: String,
+        _ path: String,
+        _ method: HTTPMethod,
+        _ headers: [String: String]? = nil,
+        queryItems: [URLQueryItem]? = nil,
+        body: Data? = nil
+    ) {
         self.baseUrl = baseUrl
         self.path = path
         self.method = method

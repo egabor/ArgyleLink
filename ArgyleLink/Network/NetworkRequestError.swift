@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum NetworkRequestError: Error {
+    case invalidURL
+}

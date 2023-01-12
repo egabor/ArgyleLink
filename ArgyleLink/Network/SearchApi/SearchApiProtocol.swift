@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol SearchApiProtocol {
+
+    func getLinkItems(for searchExpression: String, limit: Int) async throws -> LinkItemsResponse
+}

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+extension String {
+    static let httpHeaderKeyAuthorization = "authorization"
+}

@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+enum BaseApiError: Error {
+    case urlRequestIsNil
+    case urlResponseIsNil
+    case invalidStatusCode(Int, String?)
+    case invalidResponseBody(Data?)
+    case other(String?)
+}

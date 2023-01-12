@@ -94,6 +94,8 @@ class SearchScreenModel: SearchScreenModelProtocol {
             }
             .store(in: &cancellables)
 
+        // This publisher is responsible for showing an error if needed.
+
         $errorMessage
             .map { $0.isEmpty == false }
             .assign(to: &$showError)

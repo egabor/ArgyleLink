@@ -39,20 +39,33 @@ struct CompanyListItem: View {
 
     @ViewBuilder
     var imageView: some View {
-        AsyncImageView(
-            url: URL(string: viewModel.logoUrl),
-            placeholder: placeholder,
-            image: image
-        )
-        .cornerRadius(configuration.imageCornerRadius)
+        if let urlString = viewModel.logoUrl, let url = URL(string: urlString) {
+            AsyncImageView(
+                url: url,
+                placeholder: placeholder,
+                image: image
+            )
+            .cornerRadius(configuration.imageCornerRadius)
+        } else {
+            Rectangle()
+                .frame(
+                    width: configuration.imageSize,
+                    height: configuration.imageSize
+                )
+                .background(Color.blue)
+                .cornerRadius(configuration.imageCornerRadius)
+        }
     }
 
     var loginText: some View {
         Text(viewModel.name)
     }
 
+    @ViewBuilder
     var typeTag: some View {
-        Text(viewModel.kind)
+        if let kind = viewModel.kind {
+            Text(kind)
+        }
     }
 
     // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents

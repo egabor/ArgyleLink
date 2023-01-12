@@ -10,8 +10,8 @@ import SwiftUI
 struct CompanyListItemViewModel: Identifiable {
     let id: String
     let name: String
-    let kind: String
-    let logoUrl: String
+    let kind: String?
+    let logoUrl: String?
 }
 
 // swiftlint:disable line_length

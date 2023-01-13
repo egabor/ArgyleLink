@@ -1,5 +1,5 @@
 //
-//  LinkItemToCompanyListItemViewModelMapperUseCase.swift
+//  LinkItemMapperUseCase.swift
 //  ArgyleLink
 //
 //  Created by Eszenyi Gábor on 2023. 01. 13..
@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol LinkItemToCompanyListItemViewModelMapperUseCaseProtocol {
+protocol LinkItemMapperUseCaseProtocol {
 
     func callAsFunction(_ linkItem: LinkItemResponse) -> CompanyListItemViewModel
 }
 
-class LinkItemToCompanyListItemViewModelMapperUseCase {
+class LinkItemMapperUseCase {
 
     func callAsFunction(_ linkItem: LinkItemResponse) -> CompanyListItemViewModel {
         .init(

@@ -18,7 +18,7 @@ class GetCompaniesUseCase: GetCompaniesUseCaseProtocol {
 
     let maximumNumberOfSearchResults = 15
     @Injected private var searchApi: SearchApiProtocol
-    @Injected private var mapLinkItem: LinkItemToCompanyListItemViewModelMapperUseCaseProtocol
+    @LazyInjected private var mapLinkItem: LinkItemMapperUseCaseProtocol
 
     func callAsFunction(for searchExpression: String) -> AnyPublisher<[CompanyListItemViewModel], Error> {
         return Just(searchExpression)

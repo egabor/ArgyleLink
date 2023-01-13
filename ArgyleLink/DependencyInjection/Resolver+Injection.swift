@@ -21,15 +21,11 @@ extension Resolver: ResolverRegistering {
             .implements(ImageCacheProtocol.self)
             .scope(.shared)
 
-        register { _ in
-            GetCompaniesUseCase()
-        }
-        .implements(GetCompaniesUseCaseProtocol.self)
+        register { LinkItemMapperUseCase() }
+        .implements(LinkItemMapperUseCaseProtocol.self)
 
-        register { _ in
-            LinkItemToCompanyListItemViewModelMapperUseCase()
-        }
-        .implements(LinkItemToCompanyListItemViewModelMapperUseCaseProtocol.self)
+        register { GetCompaniesUseCase() }
+        .implements(GetCompaniesUseCaseProtocol.self)
     }
 
     private static func registerNetworkServicesAndHelpers() {

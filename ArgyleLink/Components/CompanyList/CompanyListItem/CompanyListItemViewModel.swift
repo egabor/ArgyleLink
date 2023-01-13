@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CompanyListItemViewModel: Identifiable {
+struct CompanyListItemViewModel: Identifiable, Equatable {
     let id: String
     let name: String
     let kind: String

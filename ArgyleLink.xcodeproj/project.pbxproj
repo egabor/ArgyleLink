@@ -11,7 +11,6 @@
 		625C1D4E296DCAA900897295 /* ArgyleLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */; };
 		625C1D52296DCAAC00897295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D51296DCAAC00897295 /* Assets.xcassets */; };
 		625C1D55296DCAAC00897295 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D54296DCAAC00897295 /* Preview Assets.xcassets */; };
-		625C1D5F296DCAAC00897295 /* ArgyleLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D5E296DCAAC00897295 /* ArgyleLinkTests.swift */; };
 		625C1D69296DCAAC00897295 /* ArgyleLinkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D68296DCAAC00897295 /* ArgyleLinkUITests.swift */; };
 		625C1D6B296DCAAC00897295 /* ArgyleLinkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D6A296DCAAC00897295 /* ArgyleLinkUITestsLaunchTests.swift */; };
 		625C1D7A296DD23800897295 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D79296DD23800897295 /* SearchScreen.swift */; };
@@ -49,6 +48,7 @@
 		625C1DDA296F626300897295 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD9296F626300897295 /* Configuration.swift */; };
 		625C1DE0296F65EC00897295 /* BasicAuthorizationValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */; };
 		627CC9EA2970AF4600B135F5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627CC9E92970AF4600B135F5 /* ErrorResponse.swift */; };
+		627CC9EC2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627CC9EB2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift */; };
 		62B972F829706BA900443AA3 /* ErrorCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B972F729706BA900443AA3 /* ErrorCapable.swift */; };
 		62B972FA297075E900443AA3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 62B972F9297075E900443AA3 /* README.md */; };
 		62B972FD2970771200443AA3 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 62B972FC2970771200443AA3 /* Logging */; };
@@ -78,7 +78,6 @@
 		625C1D51296DCAAC00897295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		625C1D54296DCAAC00897295 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		625C1D5A296DCAAC00897295 /* ArgyleLinkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgyleLinkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		625C1D5E296DCAAC00897295 /* ArgyleLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgyleLinkTests.swift; sourceTree = "<group>"; };
 		625C1D64296DCAAC00897295 /* ArgyleLinkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArgyleLinkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		625C1D68296DCAAC00897295 /* ArgyleLinkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgyleLinkUITests.swift; sourceTree = "<group>"; };
 		625C1D6A296DCAAC00897295 /* ArgyleLinkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgyleLinkUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		625C1DDB296F63A300897295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthorizationValueUseCase.swift; sourceTree = "<group>"; };
 		627CC9E92970AF4600B135F5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		627CC9EB2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthorizationValueUseCaseTests.swift; sourceTree = "<group>"; };
 		62B972F729706BA900443AA3 /* ErrorCapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCapable.swift; sourceTree = "<group>"; };
 		62B972F9297075E900443AA3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,7 +218,7 @@
 		625C1D5D296DCAAC00897295 /* ArgyleLinkTests */ = {
 			isa = PBXGroup;
 			children = (
-				625C1D5E296DCAAC00897295 /* ArgyleLinkTests.swift */,
+				627CC9EB2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift */,
 			);
 			path = ArgyleLinkTests;
 			sourceTree = "<group>";
@@ -601,7 +601,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				625C1D5F296DCAAC00897295 /* ArgyleLinkTests.swift in Sources */,
+				627CC9EC2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

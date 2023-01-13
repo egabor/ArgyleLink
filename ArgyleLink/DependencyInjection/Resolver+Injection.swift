@@ -25,6 +25,11 @@ extension Resolver: ResolverRegistering {
             GetCompaniesUseCase()
         }
         .implements(GetCompaniesUseCaseProtocol.self)
+
+        register { _ in
+            LinkItemToCompanyListItemViewModelMapperUseCase()
+        }
+        .implements(LinkItemToCompanyListItemViewModelMapperUseCaseProtocol.self)
     }
 
     private static func registerNetworkServicesAndHelpers() {

@@ -47,6 +47,7 @@
 		625C1DD6296F36FD00897295 /* String+HTTPHeaderKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD5296F36FD00897295 /* String+HTTPHeaderKey.swift */; };
 		625C1DDA296F626300897295 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DD9296F626300897295 /* Configuration.swift */; };
 		625C1DE0296F65EC00897295 /* BasicAuthorizationValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */; };
+		626591A52971826B0058DE4C /* LinkItemToCompanyListItemViewModelMapperUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626591A42971826B0058DE4C /* LinkItemToCompanyListItemViewModelMapperUseCase.swift */; };
 		627CC9EA2970AF4600B135F5 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627CC9E92970AF4600B135F5 /* ErrorResponse.swift */; };
 		627CC9EC2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627CC9EB2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift */; };
 		62B972F829706BA900443AA3 /* ErrorCapable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B972F729706BA900443AA3 /* ErrorCapable.swift */; };
@@ -116,6 +117,7 @@
 		625C1DD9296F626300897295 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		625C1DDB296F63A300897295 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		625C1DDF296F65EC00897295 /* BasicAuthorizationValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthorizationValueUseCase.swift; sourceTree = "<group>"; };
+		626591A42971826B0058DE4C /* LinkItemToCompanyListItemViewModelMapperUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemToCompanyListItemViewModelMapperUseCase.swift; sourceTree = "<group>"; };
 		627CC9E92970AF4600B135F5 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		627CC9EB2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicAuthorizationValueUseCaseTests.swift; sourceTree = "<group>"; };
 		62B972F729706BA900443AA3 /* ErrorCapable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCapable.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				62107B0129703E0900CB0E2E /* GetCompaniesUseCase.swift */,
+				626591A42971826B0058DE4C /* LinkItemToCompanyListItemViewModelMapperUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				625C1D98296DDA8B00897295 /* Strings.swift in Sources */,
 				625C1DB8296E1E6300897295 /* ImageCache.swift in Sources */,
 				625C1D91296DD3CE00897295 /* PreviewSearchViewModel.swift in Sources */,
+				626591A52971826B0058DE4C /* LinkItemToCompanyListItemViewModelMapperUseCase.swift in Sources */,
 				625C1DD4296F33D200897295 /* NetworkRequestError.swift in Sources */,
 				625C1D87296DD2C100897295 /* Colors.swift in Sources */,
 				625C1D4E296DCAA900897295 /* ArgyleLinkApp.swift in Sources */,

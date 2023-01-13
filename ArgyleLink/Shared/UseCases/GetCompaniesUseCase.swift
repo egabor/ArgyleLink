@@ -18,6 +18,7 @@ class GetCompaniesUseCase: GetCompaniesUseCaseProtocol {
 
     let maximumNumberOfSearchResults = 15
     @Injected private var searchApi: SearchApiProtocol
+    @Injected private var mapLinkItem: LinkItemToCompanyListItemViewModelMapperUseCaseProtocol
 
     func callAsFunction(for searchExpression: String) -> AnyPublisher<[CompanyListItemViewModel], Error> {
         return Just(searchExpression)
@@ -36,18 +37,9 @@ class GetCompaniesUseCase: GetCompaniesUseCaseProtocol {
             }
             .map { response in
                 response.results.compactMap { [weak self] linkItem in
-                    self?.companyListItemViewModel(from: linkItem)
+                    self?.mapLinkItem(linkItem)
                 }
             }
             .eraseToAnyPublisher()
-    }
-
-    private func companyListItemViewModel(from linkItem: LinkItemResponse) -> CompanyListItemViewModel {
-        .init(
-            id: linkItem.id,
-            name: linkItem.name,
-            kind: linkItem.kind.rawValue,
-            logoUrl: linkItem.logoUrl
-        )
     }
 }

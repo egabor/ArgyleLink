@@ -34,16 +34,16 @@ class SearchScreenModel: SearchScreenModelProtocol {
         companies.isEmpty
     }
 
+    // MARK: - Internal Properties
+
     var minimumInputCharacters: Int {
         Configuration.minimumInputCharacters
     }
 
-    // MARK: - Internal Properties
+    @Published var mostRecentSearchText: String = ""
 
     private var cancellables = Set<AnyCancellable>()
     private var searchCancellable: AnyCancellable?
-
-    @Published internal var mostRecentSearchText: String = ""
 
     @Injected private var logger: Logger
     @Injected private var getCompanies: GetCompaniesUseCaseProtocol

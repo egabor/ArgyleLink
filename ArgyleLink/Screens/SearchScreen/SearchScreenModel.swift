@@ -22,7 +22,6 @@ class SearchScreenModel: SearchScreenModelProtocol {
     // MARK: - SearchViewModelProtocol
 
     @Published var searchText: String = ""
-    private (set) var isSearchFieldDisabled: Bool = false
 
     // MARK: - CompanyListViewModelProtocol
 

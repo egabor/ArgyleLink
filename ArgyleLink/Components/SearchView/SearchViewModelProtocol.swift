@@ -11,7 +11,6 @@ protocol SearchViewModelProtocol: ObservableObject {
 
     var searchText: String { get set }
     var mostRecentSearchText: String { get set }
-    var isSearchFieldDisabled: Bool { get }
 }
 
 extension SearchViewModelProtocol {

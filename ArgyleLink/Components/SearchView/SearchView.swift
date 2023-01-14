@@ -43,7 +43,6 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
             isFocused = true
         }
         .searchFieldStyle()
-        .disabled(viewModel.isSearchFieldDisabled)
     }
 
     // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents

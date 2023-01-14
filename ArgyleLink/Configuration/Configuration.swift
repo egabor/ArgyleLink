@@ -10,6 +10,7 @@ import Foundation
 enum Configuration: String {
     static let baseUrl = "https://api-sandbox.argyle.com/"
     static let loggerLabel = "argyle-link"
+    static var minimumInputCharacters: Int = 2
 
     case apiKey = "API_KEY_ID"
     case apiSecret = "API_KEY_SECRET"

@@ -22,10 +22,13 @@ extension Resolver: ResolverRegistering {
             .scope(.shared)
 
         register { LinkItemMapperUseCase() }
-        .implements(LinkItemMapperUseCaseProtocol.self)
+            .implements(LinkItemMapperUseCaseProtocol.self)
 
         register { GetCompaniesUseCase() }
-        .implements(GetCompaniesUseCaseProtocol.self)
+            .implements(GetCompaniesUseCaseProtocol.self)
+
+        register { StartSearchUseCase() }
+            .implements(StartSearchUseCaseProtocol.self)
     }
 
     private static func registerNetworkServicesAndHelpers() {

@@ -12,7 +12,7 @@ protocol LinkItemMapperUseCaseProtocol {
     func callAsFunction(_ linkItem: LinkItemResponse) -> CompanyListItemViewModel
 }
 
-class LinkItemMapperUseCase {
+class LinkItemMapperUseCase: LinkItemMapperUseCaseProtocol {
 
     func callAsFunction(_ linkItem: LinkItemResponse) -> CompanyListItemViewModel {
         .init(

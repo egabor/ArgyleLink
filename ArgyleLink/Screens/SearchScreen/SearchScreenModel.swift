@@ -19,33 +19,35 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     let debounceTimeIntervalInMilliseconds = 500
 
-    // MARK: - SearchViewModelProtocol
+    // MARK: - Input Variables
 
     @Published var searchText: String = ""
 
-    // MARK: - CompanyListViewModelProtocol
+    // MARK: - Output Variables
 
     @Published var companies: [CompanyListItemViewModel] = []
-    @Published internal var mostRecentSearchText: String = ""
+    @Published var isLoading: Bool = false
+    @Published var showError: Bool = false
+    @Published var errorMessage: String = ""
+
     var isEmpty: Bool {
         companies.isEmpty
     }
+
     var minimumInputCharacters: Int {
-        2
+        Configuration.minimumInputCharacters
     }
 
-    // MARK: - LoadingCapable
-
-    @Published var isLoading: Bool = false
-
-    @Published var showError: Bool = false
-    @Published var errorMessage: String = ""
+    // MARK: - Internal Properties
 
     private var cancellables = Set<AnyCancellable>()
     private var searchCancellable: AnyCancellable?
 
+    @Published internal var mostRecentSearchText: String = ""
+
     @Injected private var logger: Logger
     @Injected private var getCompanies: GetCompaniesUseCaseProtocol
+    @Injected private var shouldStartSearch: StartSearchUseCaseProtocol
 
     init() {
         logger.info("\(Self.self) initialized.")
@@ -76,7 +78,12 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
         Publishers.CombineLatest($searchText, $mostRecentSearchText)
             .map { [weak self] (searchText, mostRecentSearchText) in
-                self?.shouldStartSearch(searchText, mostRecentSearchText) ?? false
+                guard let self = self else { return false }
+                return self.shouldStartSearch(
+                    self.minimumInputCharacters,
+                    searchText,
+                    mostRecentSearchText
+                )
             }
             .assign(to: &$isLoading)
 
@@ -100,24 +107,16 @@ class SearchScreenModel: SearchScreenModelProtocol {
             .assign(to: &$showError)
     }
 
-    func isAllowedToPerformSearch(_ searchText: String) -> Bool {
-        minimumInputCharacters <= searchText.count
-    }
-
-    func isSearchNeededToPerform(_ searchText: String, _ mostRecentSearchText: String) -> Bool {
-        searchText != mostRecentSearchText && searchText.isEmpty == false
-    }
-
-    func shouldStartSearch(_ searchText: String, _ mostRecentSearchText: String) -> Bool {
-        isAllowedToPerformSearch(searchText) && isSearchNeededToPerform(searchText, mostRecentSearchText)
-    }
-
-    func searchParameters(_ searchText: String, _ mostRecentSearchText: String) -> (Bool, String) {
-        let shouldStartSearch = shouldStartSearch(searchText, mostRecentSearchText)
+    private func searchParameters(_ searchText: String, _ mostRecentSearchText: String) -> (Bool, String) {
+        let shouldStartSearch = shouldStartSearch(
+            minimumInputCharacters,
+            searchText,
+            mostRecentSearchText
+        )
         return (shouldStartSearch, searchText)
     }
 
-    func performSearch(_ searchText: String) {
+    private func performSearch(_ searchText: String) {
         logger.info("Starting search with expression: \(searchText)")
         searchCancellable = getCompanies(for: searchText)
             .sink { [weak self] completion in

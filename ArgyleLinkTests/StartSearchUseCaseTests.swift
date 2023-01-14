@@ -19,12 +19,12 @@ final class StartSearchUseCaseTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func test_noMinimumInputLimit_searchText_isNotEqualToMostRecentSearchText_shouldReturnTrue() throws {
+    func test_noMinimumInputLimit_andSearchTextIsNotEqualToMostRecentSearchText_shouldReturnTrue() throws {
         let shouldStartSearch = StartSearchUseCase()
         XCTAssertTrue(shouldStartSearch(0, "test", ""))
     }
 
-    func test_theresMinimumInputLimit_searchText_isNotEqualToMostRecentSearchText_andSearchTextLengthIsAboveLimit_shouldReturnTrue() throws {
+    func test_theresMinimumInputLimit_andSearchTextIsNotEqualToMostRecentSearchText_andSearchTextLengthIsAboveLimit_shouldReturnTrue() throws {
         let shouldStartSearch = StartSearchUseCase()
         XCTAssertTrue(shouldStartSearch(2, "test", ""))
     }
@@ -34,7 +34,7 @@ final class StartSearchUseCaseTests: XCTestCase {
         XCTAssertFalse(shouldStartSearch(2, "t", ""))
     }
 
-    func test_theresMinimumInputLimit_isSearchTextLengthIsAboveLimit_andSearchIsEqualToMostRecent_shouldReturnFalse() throws {
+    func test_theresMinimumInputLimit_andSearchTextIsEqualToMostRecentSearchText_andSearchTextLengthIsAboveLimit_shouldReturnFalse() throws {
         let shouldStartSearch = StartSearchUseCase()
         XCTAssertFalse(shouldStartSearch(2, "test", "test"))
     }

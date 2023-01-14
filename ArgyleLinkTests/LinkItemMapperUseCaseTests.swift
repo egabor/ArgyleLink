@@ -8,6 +8,7 @@
 import XCTest
 @testable import ArgyleLink
 
+// swiftlint:disable line_length
 final class LinkItemMapperUseCaseTests: XCTestCase {
 
     let mapLinkItem: LinkItemMapperUseCase = .init()
@@ -34,3 +35,4 @@ final class LinkItemMapperUseCaseTests: XCTestCase {
         XCTAssertEqual(mapLinkItem(input), output)
     }
 }
+// swiftlint:enable line_length

@@ -58,3 +58,16 @@ extension CompanyListViewModelProtocol {
         String(format: NSLocalizedString(string, comment: ""), param)
     }
 }
+
+// MARK: - Accessibility Identifiers
+
+extension CompanyListViewModelProtocol {
+
+    var initialEmptyStateAccessibilityIdentifier: String {
+        .accessibilityIdCompanyListInitialEmptyState
+    }
+
+    var noResultsEmptyStateAccessibilityIdentifier: String {
+        .accessibilityIdCompanyListNoResultsEmptyState
+    }
+}

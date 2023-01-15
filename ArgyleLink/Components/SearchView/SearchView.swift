@@ -58,6 +58,7 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
         )
         .focused($isFocused)
         .autocorrectionDisabled()
+        .accessibilityIdentifier(viewModel.searchViewAccessibilityIdentifier)
     }
 
     @ViewBuilder
@@ -68,6 +69,7 @@ struct SearchView<ViewModel: SearchViewModelProtocol>: View {
                 label: clearButtonImage
             )
             .transition(.opacity.animation(.easeInOut))
+            .accessibilityIdentifier(viewModel.clearButtonAccessibilityIdentifier)
         }
     }
 

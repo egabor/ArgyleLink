@@ -8,6 +8,9 @@
 import Foundation
 
 // swiftlint:disable identifier_name
+
+// MARK: - Localized Keys
+
 extension String {
     static let searchScreenSearchTextFieldPlaceholder = "searchScreen.search.textField.placeholder"
     static let searchScreenCompanyListInitialStateTitle = "searchScreen.companyList.initialState.title"
@@ -17,4 +20,15 @@ extension String {
     static let alertErrorTitle = "alert.error.title"
     static let alertOkButtonTitle = "alert.ok.button.title"
 }
+
+// MARK: - Accessibility Identifiers
+
+extension String {
+    static let accessibilityIdSearchView = "searchView"
+    static let accessibilityIdSearchViewClearButton = "searchViewClearButton"
+
+    static let accessibilityIdCompanyListInitialEmptyState = "companyListInitialEmptyState"
+    static let accessibilityIdCompanyListNoResultsEmptyState = "companyListNoResultsEmptyState"
+}
+
 // swiftlint:enable identifier_name

@@ -25,9 +25,24 @@ extension SearchViewModelProtocol {
     }
 }
 
+// MARK: - Localized
+
 extension SearchViewModelProtocol {
 
     var searchFieldPlaceholder: String {
         .searchScreenSearchTextFieldPlaceholder
+    }
+}
+
+// MARK: - Accessibility Identifiers
+
+extension SearchViewModelProtocol {
+
+    var searchViewAccessibilityIdentifier: String {
+        .accessibilityIdSearchView
+    }
+
+    var clearButtonAccessibilityIdentifier: String {
+        .accessibilityIdSearchViewClearButton
     }
 }

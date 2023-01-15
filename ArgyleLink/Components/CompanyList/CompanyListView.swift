@@ -52,8 +52,12 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
             Spacer()
             if viewModel.hasNoResultsForKeyword {
                 noResultsState
+                    .accessibilityElement(children: .combine)
+                    .accessibilityIdentifier(viewModel.noResultsEmptyStateAccessibilityIdentifier)
             } else {
                 emptyState
+                    .accessibilityElement(children: .combine)
+                    .accessibilityIdentifier(viewModel.initialEmptyStateAccessibilityIdentifier)
             }
             Spacer()
         }

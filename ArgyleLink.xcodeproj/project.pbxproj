@@ -89,7 +89,7 @@
 		621A719F2971DA41008CCD27 /* LinkItemMapperUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemMapperUseCaseTests.swift; sourceTree = "<group>"; };
 		621A71A12971DD92008CCD27 /* Resolver+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Injection.swift"; sourceTree = "<group>"; };
 		621A71A32971DF2F008CCD27 /* SearchScreenModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenModelTests.swift; sourceTree = "<group>"; };
-		625C1D4A296DCAA900897295 /* ArgyleLink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArgyleLink.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		625C1D4A296DCAA900897295 /* Argyle Link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Argyle Link.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgyleLinkApp.swift; sourceTree = "<group>"; };
 		625C1D51296DCAAC00897295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		625C1D54296DCAAC00897295 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 		625C1D4B296DCAA900897295 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				625C1D4A296DCAA900897295 /* ArgyleLink.app */,
+				625C1D4A296DCAA900897295 /* Argyle Link.app */,
 				625C1D5A296DCAAC00897295 /* ArgyleLinkTests.xctest */,
 				62B74C532974593B00AB4DF5 /* ArgyleLinkUITests.xctest */,
 			);
@@ -480,7 +480,7 @@
 				62B74C4A2974581100AB4DF5 /* Resolver */,
 			);
 			productName = ArgyleLink;
-			productReference = 625C1D4A296DCAA900897295 /* ArgyleLink.app */;
+			productReference = 625C1D4A296DCAA900897295 /* Argyle Link.app */;
 			productType = "com.apple.product-type.application";
 		};
 		625C1D59296DCAAC00897295 /* ArgyleLinkTests */ = {
@@ -858,7 +858,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaboreszenyi.ArgyleLink;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Argyle Link";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -888,7 +888,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gaboreszenyi.ArgyleLink;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Argyle Link";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

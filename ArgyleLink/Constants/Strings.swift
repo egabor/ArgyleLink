@@ -29,6 +29,8 @@ extension String {
 
     static let accessibilityIdCompanyListInitialEmptyState = "companyListInitialEmptyState"
     static let accessibilityIdCompanyListNoResultsEmptyState = "companyListNoResultsEmptyState"
+    static let accessibilityIdPlaceholderCompanyList = "placeholderCompanyList"
+    static let accessibilityIdCompanyList = "companyList"
 }
 
 // swiftlint:enable identifier_name

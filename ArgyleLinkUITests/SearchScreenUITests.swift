@@ -6,7 +6,28 @@
 //
 
 import XCTest
-@testable import ArgyleLink
+
+enum SearchScreenUIElements: String {
+    case searchView = "searchView"
+    case clearButton = "searchViewClearButton"
+    case initialEmptyStateView = "companyListInitialEmptyState"
+    case noResultsEmptyStateView = "companyListNoResultsEmptyState"
+    case placeholderCompanyList = "placeholderCompanyList"
+    case companyList = "companyList"
+
+    var element: XCUIElement {
+        switch self {
+        case .searchView:
+            return XCUIApplication().textFields[rawValue]
+        case .clearButton:
+            return XCUIApplication().buttons[rawValue]
+        case .initialEmptyStateView, .noResultsEmptyStateView:
+            return XCUIApplication().staticTexts[rawValue]
+        case .companyList, .placeholderCompanyList:
+            return XCUIApplication().scrollViews[rawValue]
+        }
+    }
+}
 
 final class SearchScreenUITests: XCTestCase {
 
@@ -18,7 +39,6 @@ final class SearchScreenUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
@@ -28,59 +48,48 @@ final class SearchScreenUITests: XCTestCase {
     func testSearchScreen_initialState() throws {
         launchApplication()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let screen = SearchScreenUIElements.self
 
-        let searchInput = XCUIApplication().textFields["searchView"]
-        let clearButton = XCUIApplication().buttons["searchViewClearButton"]
-        let emptyStateView = XCUIApplication().staticTexts["companyListInitialEmptyState"]
-
-        iShouldSee(searchInput, timeout: defaultTimeout)
-        iShouldNotSee(clearButton)
-        iShouldSee(emptyStateView, timeout: defaultTimeout)
+        iShouldSee(screen.searchView.element, timeout: defaultTimeout)
+        iShouldNotSee(screen.clearButton.element)
+        iShouldSee(screen.initialEmptyStateView.element, timeout: defaultTimeout)
     }
 
-    func testSearchScreen_userEntersInput() throws {
+    func testSearchScreen_userEntersInput_shouldSeeNoResults() throws {
         launchApplication()
 
-        let searchInput = XCUIApplication().textFields["searchView"]
-        let clearButton = XCUIApplication().buttons["searchViewClearButton"]
-        let noResultsStateView = XCUIApplication().staticTexts["companyListNoResultsEmptyState"]
+        let screen = SearchScreenUIElements.self
 
-        iShouldSee(searchInput, timeout: defaultTimeout)
-        typeText(into: searchInput, text: "thhfeghj")
-        iShouldSee(clearButton)
-        iShouldSee(noResultsStateView, timeout: 10)
-    }
-}
-
-extension XCTestCase {
-
-    func launchApplication() {
-        let app = XCUIApplication()
-        app.launch()
+        iShouldSee(screen.searchView.element, timeout: defaultTimeout)
+        typeText(into: screen.searchView.element, text: "thhfeghj")
+        iShouldSee(screen.clearButton.element)
+        iShouldSee(screen.noResultsEmptyStateView.element, timeout: defaultTimeout)
     }
 
-    func iShouldSee(_ element: XCUIElement, timeout: Double? = nil) {
-        XCTContext.runActivity(named: "I should see \(element)") { _ in
-            if let timeout {
-                XCTAssert(element.waitForExistence(timeout: timeout))
-            } else {
-                XCTAssert(element.exists)
-            }
-        }
+    func testSearchScreen_userEntersInput_thenClearsInput_shouldSeeInitialState() throws {
+        launchApplication()
+
+        let screen = SearchScreenUIElements.self
+
+        iShouldSee(screen.searchView.element, timeout: defaultTimeout)
+        typeText(into: screen.searchView.element, text: "thhfeghj")
+        iShouldSee(screen.clearButton.element)
+        iShouldSee(screen.noResultsEmptyStateView.element, timeout: defaultTimeout)
+
+        screen.clearButton.element.tap()
+
+        iShouldNotSee(screen.clearButton.element)
+        iShouldSee(screen.initialEmptyStateView.element, timeout: defaultTimeout)
     }
 
-    func iShouldNotSee(_ element: XCUIElement) {
-        XCTContext.runActivity(named: "I should NOT see \(element)") { _ in
-            XCTAssertFalse(element.exists)
-        }
-    }
+    func testSearchScreen_userEntersValidInput_shouldSeeResults() throws {
+        launchApplication()
 
-    func typeText(into element: XCUIElement, text: String) {
-        XCTContext.runActivity(named: "When I tap on \(element)") { _ in
-            XCTAssert(element.exists)
-            element.tap()
-            element.typeText(text)
-        }
+        let screen = SearchScreenUIElements.self
+
+        iShouldSee(screen.searchView.element, timeout: defaultTimeout)
+        typeText(into: screen.searchView.element, text: "am")
+        iShouldSee(screen.placeholderCompanyList.element)
+        iShouldSee(screen.companyList.element, timeout: defaultTimeout)
     }
 }

@@ -24,10 +24,12 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
             if viewModel.isLoading {
                 list(with: .placeholderData)
                     .redacted(reason: .placeholder)
+                    .accessibilityIdentifier(viewModel.placeholderCompanyListAccessibilityId)
             } else if viewModel.isEmpty {
                 emptyList
             } else {
                 list(with: viewModel.companies)
+                    .accessibilityIdentifier(viewModel.companyListAccessibilityId)
             }
         }
         .scrollDismissesKeyboard(.immediately)
@@ -53,11 +55,11 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
             if viewModel.hasNoResultsForKeyword {
                 noResultsState
                     .accessibilityElement(children: .combine)
-                    .accessibilityIdentifier(viewModel.noResultsEmptyStateAccessibilityIdentifier)
+                    .accessibilityIdentifier(viewModel.noResultsEmptyStateAccessibilityId)
             } else {
                 emptyState
                     .accessibilityElement(children: .combine)
-                    .accessibilityIdentifier(viewModel.initialEmptyStateAccessibilityIdentifier)
+                    .accessibilityIdentifier(viewModel.initialEmptyStateAccessibilityId)
             }
             Spacer()
         }

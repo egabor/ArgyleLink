@@ -38,11 +38,11 @@ extension SearchViewModelProtocol {
 
 extension SearchViewModelProtocol {
 
-    var searchViewAccessibilityIdentifier: String {
+    var searchViewAccessibilityId: String {
         .accessibilityIdSearchView
     }
 
-    var clearButtonAccessibilityIdentifier: String {
+    var clearButtonAccessibilityId: String {
         .accessibilityIdSearchViewClearButton
     }
 }

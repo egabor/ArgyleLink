@@ -63,11 +63,19 @@ extension CompanyListViewModelProtocol {
 
 extension CompanyListViewModelProtocol {
 
-    var initialEmptyStateAccessibilityIdentifier: String {
+    var initialEmptyStateAccessibilityId: String {
         .accessibilityIdCompanyListInitialEmptyState
     }
 
-    var noResultsEmptyStateAccessibilityIdentifier: String {
+    var noResultsEmptyStateAccessibilityId: String {
         .accessibilityIdCompanyListNoResultsEmptyState
+    }
+
+    var placeholderCompanyListAccessibilityId: String {
+        .accessibilityIdPlaceholderCompanyList
+    }
+
+    var companyListAccessibilityId: String {
+        .accessibilityIdCompanyList
     }
 }

@@ -11,6 +11,7 @@ class PreviewCompanyListViewModel: CompanyListViewModelProtocol {
 
     var companies: [CompanyListItemViewModel] = []
     var searchText: String = ""
+    var trimmedSearchText: String = ""
     var mostRecentSearchText: String = ""
     var isLoading: Bool = false
     var isEmpty: Bool {

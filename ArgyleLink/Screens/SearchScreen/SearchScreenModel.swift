@@ -40,6 +40,7 @@ class SearchScreenModel: SearchScreenModelProtocol {
         Configuration.minimumInputCharacters
     }
 
+    @Published var trimmedSearchText: String = ""
     @Published var mostRecentSearchText: String = ""
 
     private var cancellables = Set<AnyCancellable>()
@@ -56,7 +57,17 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
     private func setupPublishers() {
 
-        Publishers.CombineLatest($searchText, $mostRecentSearchText)
+        $searchText
+            .map { $0.trimmed }
+            .removeDuplicates()
+            .assign(to: &$trimmedSearchText)
+
+        let combinedSearchTextWithMostRecent = Publishers.CombineLatest(
+            $trimmedSearchText,
+            $mostRecentSearchText
+        )
+
+        combinedSearchTextWithMostRecent
             .compactMap { [weak self] searchText, mostRecentSearchText -> (Bool, String)? in
                 self?.searchParameters(searchText, mostRecentSearchText)
             }
@@ -76,8 +87,8 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
         // This publisher is responsible to decide whether to show the loading or not.
 
-        Publishers.CombineLatest($searchText, $mostRecentSearchText)
-            .map { [weak self] (searchText, mostRecentSearchText) in
+        combinedSearchTextWithMostRecent
+            .map { [weak self] searchText, mostRecentSearchText in
                 guard let self = self else { return false }
                 return self.shouldStartSearch(
                     self.minimumInputCharacters,
@@ -89,7 +100,8 @@ class SearchScreenModel: SearchScreenModelProtocol {
 
         // This publisher is responsible for resetting the screen.
 
-        $searchText
+        $trimmedSearchText
+            .map { $0.trimmed }
             .filter { [weak self] searchText in
                 searchText.count < self?.minimumInputCharacters ?? 1
             }

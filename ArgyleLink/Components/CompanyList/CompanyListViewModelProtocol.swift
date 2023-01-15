@@ -12,6 +12,7 @@ protocol CompanyListViewModelProtocol: ObservableObject {
 
     var companies: [CompanyListItemViewModel] { get set }
     var searchText: String { get set }
+    var trimmedSearchText: String { get set }
     var mostRecentSearchText: String { get set }
     var isLoading: Bool { get set }
     var isEmpty: Bool { get }
@@ -22,18 +23,18 @@ extension CompanyListViewModelProtocol {
 
     var hasNoResultsForKeyword: Bool {
         mostRecentSearchText.isEmpty == false &&
-        mostRecentSearchText == searchText &&
+        mostRecentSearchText == trimmedSearchText &&
         companies.isEmpty
     }
 
     var emptyListText: String {
-        if mostRecentSearchText.isEmpty == false && mostRecentSearchText == searchText {
+        if mostRecentSearchText.isEmpty == false && mostRecentSearchText == trimmedSearchText {
             return localizedString(
                 .searchScreenCompanyListNoResultsStateTitle,
                 with: mostRecentSearchText
             )
         } else {
-            if searchText.isEmpty {
+            if trimmedSearchText.isEmpty {
                 return localizedString(
                     .searchScreenCompanyListInitialStateTitle,
                     with: minimumInputCharacters
@@ -41,13 +42,13 @@ extension CompanyListViewModelProtocol {
             } else {
                 return localizedString(
                     .searchScreenCompanyListInitialStateTypeMoreTitle,
-                    with: max(0, minimumInputCharacters - searchText.count)
+                    with: max(0, minimumInputCharacters - trimmedSearchText.count)
                 )
             }
         }
     }
 
-    func localizedString(_ string: String, with param: CVarArg) -> String {
+    fileprivate func localizedString(_ string: String, with param: CVarArg) -> String {
         String(format: NSLocalizedString(string, comment: ""), param)
     }
 }

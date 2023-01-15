@@ -15,11 +15,16 @@ protocol LinkItemMapperUseCaseProtocol {
 class LinkItemMapperUseCase: LinkItemMapperUseCaseProtocol {
 
     func callAsFunction(_ linkItem: LinkItemResponse) -> CompanyListItemViewModel {
-        .init(
+        var logoUrl: URL?
+        if let urlString = linkItem.logoUrl, let url = URL(string: urlString) {
+            logoUrl = url
+        }
+
+        return .init(
             id: linkItem.id,
             name: linkItem.name,
             kind: linkItem.kind.rawValue,
-            logoUrl: linkItem.logoUrl
+            logoUrl: logoUrl
         )
     }
 }

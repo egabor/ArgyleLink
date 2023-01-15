@@ -39,7 +39,7 @@ struct CompanyListItem: View {
 
     @ViewBuilder
     var imageView: some View {
-        if let urlString = viewModel.logoUrl, let url = URL(string: urlString) {
+        if let url = viewModel.logoUrl {
             AsyncImageView(
                 url: url,
                 placeholder: placeholder,
@@ -116,7 +116,8 @@ struct CompanyListItem_Previews: PreviewProvider {
                     id: "test",
                     name: "Test",
                     kind: "Employer",
-                    logoUrl: "https://res.cloudinary.com/argyle-media/image/upload/v1598543068/partner-logos/amazon.png"
+                    // swiftlint:disable:next line_length
+                    logoUrl: URL(string: "https://res.cloudinary.com/argyle-media/image/upload/v1598543068/partner-logos/amazon.png")
                 )
             )
         }

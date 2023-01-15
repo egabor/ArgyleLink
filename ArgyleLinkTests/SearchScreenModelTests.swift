@@ -217,4 +217,40 @@ final class SearchScreenModelTests: XCTestCase {
         XCTAssertEqual(viewModel.isEmpty, true)
         XCTAssertEqual(viewModel.companies.isEmpty, true)
     }
+
+    func test_viewModelState_whenSearchTextLengthIsEqualLimit_receivingInvalidResults_shouldNotFail() throws {
+        searchApi.mockResult = .successValidResults
+        let viewModel = SearchScreenModel()
+        let searchText = "tt"
+        viewModel.searchText = searchText
+
+        XCTAssertEqual(viewModel.searchText, searchText)
+        XCTAssertEqual(viewModel.mostRecentSearchText, "")
+        XCTAssertEqual(viewModel.isLoading, true)
+        XCTAssertEqual(viewModel.showError, false)
+        XCTAssertEqual(viewModel.errorMessage, "")
+        XCTAssertEqual(viewModel.isEmpty, true)
+        XCTAssertEqual(viewModel.companies.isEmpty, true)
+
+        let search = self.expectation(description: "Search.")
+
+        viewModel.$companies
+            .dropFirst()
+            .first()
+            .receive(on: DispatchQueue.main)
+            .sink { _ in
+                search.fulfill()
+            }
+            .store(in: &subscriptions)
+
+        wait(for: [search], timeout: 10)
+
+        XCTAssertEqual(viewModel.searchText, searchText)
+        XCTAssertEqual(viewModel.mostRecentSearchText, searchText)
+        XCTAssertEqual(viewModel.isLoading, false)
+        XCTAssertEqual(viewModel.showError, false)
+        XCTAssertEqual(viewModel.errorMessage, "")
+        XCTAssertEqual(viewModel.isEmpty, false)
+        XCTAssertEqual(viewModel.companies.isEmpty, false)
+    }
 }

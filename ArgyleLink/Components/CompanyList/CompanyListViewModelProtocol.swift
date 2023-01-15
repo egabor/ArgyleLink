@@ -17,6 +17,7 @@ protocol CompanyListViewModelProtocol: ObservableObject {
     var isLoading: Bool { get set }
     var isEmpty: Bool { get }
     var minimumInputCharacters: Int { get }
+    var errorMessage: String { get set }
 }
 
 extension CompanyListViewModelProtocol {
@@ -29,10 +30,15 @@ extension CompanyListViewModelProtocol {
 
     var emptyListText: String {
         if mostRecentSearchText.isEmpty == false && mostRecentSearchText == trimmedSearchText {
-            return localizedString(
-                .searchScreenCompanyListNoResultsStateTitle,
-                with: mostRecentSearchText
-            )
+            if errorMessage.isEmpty {
+                return localizedString(
+                    .searchScreenCompanyListNoResultsStateTitle,
+                    with: mostRecentSearchText
+                )
+            } else {
+                return errorMessage
+            }
+
         } else {
             if trimmedSearchText.isEmpty {
                 return localizedString(

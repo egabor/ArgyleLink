@@ -13,6 +13,7 @@ class PreviewCompanyListViewModel: CompanyListViewModelProtocol {
     var searchText: String = ""
     var trimmedSearchText: String = ""
     var mostRecentSearchText: String = ""
+    var errorMessage: String = ""
     var isLoading: Bool = false
     var isEmpty: Bool {
         companies.isEmpty

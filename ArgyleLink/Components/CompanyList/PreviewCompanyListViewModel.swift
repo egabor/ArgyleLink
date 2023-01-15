@@ -19,7 +19,7 @@ class PreviewCompanyListViewModel: CompanyListViewModelProtocol {
         companies.isEmpty
     }
     var minimumInputCharacters: Int {
-        2
+        Configuration.minimumInputCharacters
     }
 
     init(companies: [CompanyListItemViewModel]) {

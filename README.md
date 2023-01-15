@@ -1,5 +1,9 @@
 # Argyle Link iOS
 
+## Requirements
+
+- Minimum iOS version: 16.0
+
 ## Setting up the project
 
 Before you build and run the project you need to set two configuration values ('API_KEY_ID' and 'API_KEY_SECRET') in the 'Shared.xcconfig'. If you miss this the app will run on a fatalError when these values are getting read.

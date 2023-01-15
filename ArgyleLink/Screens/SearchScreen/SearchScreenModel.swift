@@ -135,6 +135,8 @@ class SearchScreenModel: SearchScreenModelProtocol {
                 if case let .failure(error) = completion {
                     self?.logger.error("Error occurred during the search: \(error.localizedDescription)")
                     self?.errorMessage = error.localizedDescription
+                } else {
+                    self?.errorMessage = ""
                 }
                 self?.mostRecentSearchText = searchText
             } receiveValue: { [weak self] results in

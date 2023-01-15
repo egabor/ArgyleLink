@@ -6,9 +6,12 @@
 
 ## Setting up the project
 
-Before you build and run the project you need to set two configuration values ('API_KEY_ID' and 'API_KEY_SECRET') in the 'Shared.xcconfig'. If you miss this the app will run on a fatalError when these values are getting read.
+- Wait for the packages to be loaded.
+- Set the configuration values in the [Shared.xcconfig](ArgyleLink/Configuration/Shared.xcconfig) file.
+    - **API_KEY_ID**: The value which is in the task description.
+    - **API_KEY_SECRET**: The value that you received privately.
 
-After the packages are loaded you can run the project.
+❗️**IMPORTANT**: If you miss setting these values the app will run on a fatalError (to remind you) when the values are getting read.
 
 ## Architecture
 

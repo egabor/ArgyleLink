@@ -38,21 +38,21 @@ final class LinkItemMapperUseCaseTests: XCTestCase {
         XCTAssertEqual(mapLinkItem(input), output)
     }
 
-    func test_linkItemMapper_whenUrlIsNil() {
+    func test_linkItemMapper_whenUrlIsNil() throws {
         let input = LinkItemResponse(id: "testId", name: "testName", kind: .creator, logoUrl: nil)
         let output = CompanyListItemViewModel(id: "testId", name: "testName", kind: "creator", logoUrl: nil)
 
         XCTAssertEqual(mapLinkItem(input), output)
     }
 
-    func test_linkItemMapper_whenUrlIsInvalid() {
+    func test_linkItemMapper_whenUrlIsInvalid() throws {
         let input = LinkItemResponse(id: "testId", name: "testName", kind: .creator, logoUrl: "")
         let output = CompanyListItemViewModel(id: "testId", name: "testName", kind: "creator", logoUrl: nil)
 
         XCTAssertEqual(mapLinkItem(input), output)
     }
 
-    func test_linkItemMapper_whenKindIsInvalid() {
+    func test_linkItemMapper_whenKindIsInvalid() throws {
         let inputData = """
 {
   "id": "testId",

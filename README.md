@@ -21,6 +21,7 @@ MVVM architecture is used in the project along with SwiftUI and Combine. For sha
 
 - Resolver
 - Logging (swift-log)
+- SwiftLint
 
 ## Known bugs
 

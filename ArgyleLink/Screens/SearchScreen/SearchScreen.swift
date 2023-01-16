@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchScreen: View {
 
-    @StateObject private var viewModel: SearchScreenModel = .init()
+    @StateObject private var viewModel: SearchScreenViewModel = .init()
 
     // MARK: - LEVEL 0 Views: Body & Content Wrapper (Main Containers)
 

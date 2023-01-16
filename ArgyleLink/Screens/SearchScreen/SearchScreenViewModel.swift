@@ -1,5 +1,5 @@
 //
-//  SearchScreenModel.swift
+//  SearchScreenViewModel.swift
 //  ArgyleLink
 //
 //  Created by Eszenyi Gábor on 2023. 01. 10..
@@ -10,10 +10,10 @@ import Combine
 import Resolver
 import Logging
 
-typealias SearchScreenModelProtocol = SearchViewModelProtocol &
+typealias SearchScreenViewModelProtocol = SearchViewModelProtocol &
 CompanyListViewModelProtocol & LoadingCapable & ErrorCapable
 
-class SearchScreenModel: SearchScreenModelProtocol {
+class SearchScreenViewModel: SearchScreenViewModelProtocol {
 
     // MARK: - Constants
 

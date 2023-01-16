@@ -24,12 +24,11 @@ extension CompanyListViewModelProtocol {
 
     var hasNoResultsForKeyword: Bool {
         mostRecentSearchText.isEmpty == false &&
-        mostRecentSearchText == trimmedSearchText &&
-        companies.isEmpty
+        mostRecentSearchText == trimmedSearchText
     }
 
     var emptyListText: String {
-        if mostRecentSearchText.isEmpty == false && mostRecentSearchText == trimmedSearchText {
+        if hasNoResultsForKeyword {
             if errorMessage.isEmpty {
                 return localizedString(
                     .searchScreenCompanyListNoResultsStateTitle,
@@ -38,7 +37,6 @@ extension CompanyListViewModelProtocol {
             } else {
                 return errorMessage
             }
-
         } else {
             if trimmedSearchText.isEmpty {
                 return localizedString(

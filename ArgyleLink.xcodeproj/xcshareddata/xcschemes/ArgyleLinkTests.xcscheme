@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "625C1D49296DCAA900897295"
-               BuildableName = "ArgyleLink.app"
+               BuildableName = "Argyle Link.app"
                BlueprintName = "ArgyleLink"
                ReferencedContainer = "container:ArgyleLink.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "625C1D49296DCAA900897295"
-            BuildableName = "ArgyleLink.app"
+            BuildableName = "Argyle Link.app"
             BlueprintName = "ArgyleLink"
             ReferencedContainer = "container:ArgyleLink.xcodeproj">
          </BuildableReference>
@@ -67,7 +67,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "625C1D49296DCAA900897295"
-            BuildableName = "ArgyleLink.app"
+            BuildableName = "Argyle Link.app"
             BlueprintName = "ArgyleLink"
             ReferencedContainer = "container:ArgyleLink.xcodeproj">
          </BuildableReference>

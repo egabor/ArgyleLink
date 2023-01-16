@@ -85,7 +85,7 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
     var noResultsState: some View {
         VStack {
             Text("🤔")
-                .font(.system(size: 64))
+                .font(.system(size: configuration.emptyListIconSize))
             Text(LocalizedStringKey(viewModel.emptyListText))
                 .multilineTextAlignment(.center)
         }
@@ -100,7 +100,7 @@ extension CompanyListView {
         let listItemSpacing: Double
 
         init(
-            emptyListIconSize: Double = 80.0,
+            emptyListIconSize: Double = 64.0,
             listItemSpacing: Double = 0.0
         ) {
             self.emptyListIconSize = emptyListIconSize

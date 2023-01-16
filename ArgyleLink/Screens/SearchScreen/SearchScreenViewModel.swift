@@ -11,7 +11,7 @@ import Resolver
 import Logging
 
 typealias SearchScreenViewModelProtocol = SearchViewModelProtocol &
-CompanyListViewModelProtocol & LoadingCapable & ErrorCapable
+CompanyListViewModelProtocol
 
 class SearchScreenViewModel: SearchScreenViewModelProtocol {
 
@@ -143,5 +143,18 @@ class SearchScreenViewModel: SearchScreenViewModelProtocol {
                 self?.logger.info("Received search results. Count: \(results.count)")
                 self?.companies = results
             }
+    }
+}
+
+// MARK: - Error Related
+
+extension SearchScreenViewModel {
+
+    var errorAlertTitle: String {
+        .alertErrorTitle
+    }
+
+    var errorAlertOkButtonTitle: String {
+        .alertOkButtonTitle
     }
 }

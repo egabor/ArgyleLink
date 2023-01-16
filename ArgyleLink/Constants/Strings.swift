@@ -9,6 +9,10 @@ import Foundation
 
 // swiftlint:disable identifier_name
 
+extension String {
+    static let noResultsEmoji = "🤔"
+}
+
 // MARK: - Localization
 
 extension String {

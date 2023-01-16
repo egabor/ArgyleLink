@@ -84,7 +84,7 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
 
     var noResultsState: some View {
         VStack {
-            Text("🤔")
+            Text(verbatim: .noResultsEmoji)
                 .font(.system(size: configuration.emptyListIconSize))
             Text(LocalizedStringKey(viewModel.emptyListText))
                 .multilineTextAlignment(.center)

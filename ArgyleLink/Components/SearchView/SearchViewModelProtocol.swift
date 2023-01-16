@@ -25,7 +25,7 @@ extension SearchViewModelProtocol {
     }
 }
 
-// MARK: - Localized
+// MARK: - Localization
 
 extension SearchViewModelProtocol {
 

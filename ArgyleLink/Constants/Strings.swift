@@ -9,7 +9,7 @@ import Foundation
 
 // swiftlint:disable identifier_name
 
-// MARK: - Localized Keys
+// MARK: - Localization
 
 extension String {
     static let searchScreenSearchTextFieldPlaceholder = "searchScreen.search.textField.placeholder"

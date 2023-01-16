@@ -10,8 +10,7 @@ import Combine
 import Resolver
 import Logging
 
-typealias SearchScreenViewModelProtocol = SearchViewModelProtocol &
-CompanyListViewModelProtocol
+typealias SearchScreenViewModelProtocol = SearchViewModelProtocol & CompanyListViewModelProtocol
 
 class SearchScreenViewModel: SearchScreenViewModelProtocol {
 

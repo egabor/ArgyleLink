@@ -43,7 +43,7 @@
       "type": "delivery",
       "has_two_fa": true,
       "is_disabled": false,
-      "kind": null,
+      "kind": "employer",
       "known_limitations": null,
       "status": "healthy",
       "status_details": null,

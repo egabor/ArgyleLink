@@ -16,7 +16,10 @@ protocol GetCompaniesUseCaseProtocol {
 
 class GetCompaniesUseCase: GetCompaniesUseCaseProtocol {
 
-    let maximumNumberOfSearchResults = 15
+    private var maximumNumberOfSearchResults: Int {
+        Configuration.maximumNumberOfSearchResults
+    }
+
     @Injected private var searchApi: SearchApiProtocol
     @Injected private var mapLinkItem: LinkItemMapperUseCaseProtocol
 

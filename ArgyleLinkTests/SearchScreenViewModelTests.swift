@@ -1,5 +1,5 @@
 //
-//  SearchScreenModelTests.swift
+//  SearchScreenViewModelTests.swift
 //  ArgyleLinkTests
 //
 //  Created by Eszenyi Gábor on 2023. 01. 13..
@@ -10,7 +10,7 @@ import Resolver
 import Combine
 @testable import ArgyleLink
 
-final class SearchScreenModelTests: XCTestCase {
+final class SearchScreenViewModelTests: XCTestCase {
 
     private var subscriptions: Set<AnyCancellable>!
     @LazyInjected private var searchApi: MockSearchApi
@@ -27,7 +27,7 @@ final class SearchScreenModelTests: XCTestCase {
     }
 
     func test_viewModelState_initial() throws {
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
 
         XCTAssertEqual(viewModel.searchText, "")
         XCTAssertEqual(viewModel.mostRecentSearchText, "")
@@ -39,7 +39,7 @@ final class SearchScreenModelTests: XCTestCase {
     }
 
     func test_viewModelState_whenSearchTextLengthBelowLimit_shouldReturnInitialState() throws {
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "t"
         viewModel.searchText = searchText
 
@@ -54,7 +54,7 @@ final class SearchScreenModelTests: XCTestCase {
 
     func test_viewModelState_whenSearchTextLengthIsEqualLimit() throws {
         searchApi.mockResult = .successValidResults
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "tt"
         viewModel.searchText = searchText
 
@@ -89,7 +89,7 @@ final class SearchScreenModelTests: XCTestCase {
     }
 
     func test_viewModelState_whenSearchTextLengthIsEqualLimitButWhiteSpaces_shouldReturnInitialState() throws {
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "  "
         viewModel.searchText = searchText
 
@@ -104,7 +104,7 @@ final class SearchScreenModelTests: XCTestCase {
 
     func test_viewModelState_whenResultsArePresent_thenClearingTheSearchText_shouldReturInitialState() throws {
         searchApi.mockResult = .successValidResults
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "tt"
         viewModel.searchText = searchText
 
@@ -150,7 +150,7 @@ final class SearchScreenModelTests: XCTestCase {
 
     func test_viewModelState_whenReceivingError() throws {
         searchApi.mockResult = .failure
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "tt"
         viewModel.searchText = searchText
 
@@ -184,7 +184,7 @@ final class SearchScreenModelTests: XCTestCase {
 
     func test_viewModelState_whenNoResultsForSearchText() throws {
         searchApi.mockResult = .successNoResults
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "tt"
         viewModel.searchText = searchText
 
@@ -220,7 +220,7 @@ final class SearchScreenModelTests: XCTestCase {
 
     func test_viewModelState_whenSearchTextLengthIsEqualLimit_receivingInvalidResults_shouldNotFail() throws {
         searchApi.mockResult = .successValidResults
-        let viewModel = SearchScreenModel()
+        let viewModel = SearchScreenViewModel()
         let searchText = "tt"
         viewModel.searchText = searchText
 

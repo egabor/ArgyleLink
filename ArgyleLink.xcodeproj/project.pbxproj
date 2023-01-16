@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		62107B0229703E0900CB0E2E /* GetCompaniesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62107B0129703E0900CB0E2E /* GetCompaniesUseCase.swift */; };
 		621A71A02971DA41008CCD27 /* LinkItemMapperUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A719F2971DA41008CCD27 /* LinkItemMapperUseCaseTests.swift */; };
-		621A71A42971DF2F008CCD27 /* SearchScreenModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A71A32971DF2F008CCD27 /* SearchScreenModelTests.swift */; };
+		621A71A42971DF2F008CCD27 /* SearchScreenViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621A71A32971DF2F008CCD27 /* SearchScreenViewModelTests.swift */; };
 		625C1D4E296DCAA900897295 /* ArgyleLinkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */; };
 		625C1D52296DCAAC00897295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D51296DCAAC00897295 /* Assets.xcassets */; };
 		625C1D55296DCAAC00897295 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625C1D54296DCAAC00897295 /* Preview Assets.xcassets */; };
@@ -86,7 +86,7 @@
 		62107B0129703E0900CB0E2E /* GetCompaniesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCompaniesUseCase.swift; sourceTree = "<group>"; };
 		621A719F2971DA41008CCD27 /* LinkItemMapperUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkItemMapperUseCaseTests.swift; sourceTree = "<group>"; };
 		621A71A12971DD92008CCD27 /* Resolver+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Injection.swift"; sourceTree = "<group>"; };
-		621A71A32971DF2F008CCD27 /* SearchScreenModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenModelTests.swift; sourceTree = "<group>"; };
+		621A71A32971DF2F008CCD27 /* SearchScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewModelTests.swift; sourceTree = "<group>"; };
 		625C1D4A296DCAA900897295 /* Argyle Link.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Argyle Link.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		625C1D4D296DCAA900897295 /* ArgyleLinkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgyleLinkApp.swift; sourceTree = "<group>"; };
 		625C1D51296DCAAC00897295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 				627CC9EB2970CD9D00B135F5 /* BasicAuthorizationValueUseCaseTests.swift */,
 				621A719F2971DA41008CCD27 /* LinkItemMapperUseCaseTests.swift */,
 				62B74C15297362B400AB4DF5 /* StartSearchUseCaseTests.swift */,
-				621A71A32971DF2F008CCD27 /* SearchScreenModelTests.swift */,
+				621A71A32971DF2F008CCD27 /* SearchScreenViewModelTests.swift */,
 			);
 			path = ArgyleLinkTests;
 			sourceTree = "<group>";
@@ -659,7 +659,7 @@
 				62B74C482974540400AB4DF5 /* MockSearchResult.swift in Sources */,
 				621A71A02971DA41008CCD27 /* LinkItemMapperUseCaseTests.swift in Sources */,
 				62B74C422974540400AB4DF5 /* MockError.swift in Sources */,
-				621A71A42971DF2F008CCD27 /* SearchScreenModelTests.swift in Sources */,
+				621A71A42971DF2F008CCD27 /* SearchScreenViewModelTests.swift in Sources */,
 				62B74C16297362B400AB4DF5 /* StartSearchUseCaseTests.swift in Sources */,
 				62B74C472974540400AB4DF5 /* Resolver+Injection.swift in Sources */,
 				62B74C462974540400AB4DF5 /* MockSearchApi.swift in Sources */,

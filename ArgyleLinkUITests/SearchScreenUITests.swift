@@ -52,7 +52,7 @@ final class SearchScreenUITests: XCTestCase {
 
         iShouldSee(screen.searchView.element, timeout: defaultTimeout)
         iShouldNotSee(screen.clearButton.element)
-        iShouldSee(screen.initialEmptyStateView.element, timeout: defaultTimeout)
+        iShouldSee(screen.initialEmptyStateView.element)
     }
 
     func testSearchScreen_userEntersInput_shouldSeeNoResults() throws {
@@ -79,7 +79,7 @@ final class SearchScreenUITests: XCTestCase {
         screen.clearButton.element.tap()
 
         iShouldNotSee(screen.clearButton.element)
-        iShouldSee(screen.initialEmptyStateView.element, timeout: defaultTimeout)
+        iShouldSee(screen.initialEmptyStateView.element)
     }
 
     func testSearchScreen_userEntersValidInput_shouldSeeResults() throws {

@@ -27,8 +27,8 @@ struct CompanyListItem: View {
                     height: configuration.imageSize
                 )
             VStack(alignment: .leading, spacing: 4) {
-                loginText
-                typeTag
+                nameText
+                kindText
             }
             Spacer()
         }
@@ -57,11 +57,11 @@ struct CompanyListItem: View {
         }
     }
 
-    var loginText: some View {
+    var nameText: some View {
         Text(viewModel.name)
     }
 
-    var typeTag: some View {
+    var kindText: some View {
         Text(viewModel.kind)
     }
 

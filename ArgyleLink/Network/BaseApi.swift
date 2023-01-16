@@ -46,12 +46,6 @@ class BaseApi {
                 }
                 return element.data
             }
-//            .mapError { error -> BaseApiError in
-//                guard let error = error as? BaseApiError else {
-//                    return .other(error.localizedDescription)
-//                }
-//                return error
-//            }
             .decode(type: D.self, decoder: decoder)
             .eraseToAnyPublisher()
     }

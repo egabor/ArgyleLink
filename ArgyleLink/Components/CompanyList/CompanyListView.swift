@@ -52,7 +52,7 @@ struct CompanyListView<ViewModel: CompanyListViewModelProtocol>: View {
     var emptyList: some View {
         VStack {
             Spacer()
-            if viewModel.hasNoResultsForKeyword {
+            if viewModel.didPerformSearch {
                 noResultsState
                     .accessibilityElement(children: .combine)
                     .accessibilityIdentifier(viewModel.noResultsEmptyStateAccessibilityId)

@@ -22,34 +22,40 @@ protocol CompanyListViewModelProtocol: ObservableObject {
 
 extension CompanyListViewModelProtocol {
 
-    var hasNoResultsForKeyword: Bool {
+    var didPerformSearch: Bool {
         mostRecentSearchText.isEmpty == false &&
         mostRecentSearchText == trimmedSearchText
     }
 
     var emptyListText: String {
-        if hasNoResultsForKeyword {
-            if errorMessage.isEmpty {
-                return localizedString(
-                    .searchScreenCompanyListNoResultsStateTitle,
-                    with: mostRecentSearchText
-                )
-            } else {
-                return errorMessage
-            }
+        if didPerformSearch {
+            return emptyResultsStateText()
         } else {
-            if trimmedSearchText.isEmpty {
-                return localizedString(
-                    .searchScreenCompanyListInitialStateTitle,
-                    with: minimumInputCharacters
-                )
-            } else {
-                return localizedString(
-                    .searchScreenCompanyListInitialStateTypeMoreTitle,
-                    with: max(0, minimumInputCharacters - trimmedSearchText.count)
-                )
-            }
+            return initialStateText()
         }
+    }
+
+    fileprivate func emptyResultsStateText() -> String {
+        guard errorMessage.isEmpty else {
+            return errorMessage
+        }
+        return localizedString(
+            .searchScreenCompanyListNoResultsStateTitle,
+            with: mostRecentSearchText
+        )
+    }
+
+    fileprivate func initialStateText() -> String {
+        guard trimmedSearchText.isEmpty else {
+            return localizedString(
+                .searchScreenCompanyListInitialStateTypeMoreTitle,
+                with: max(0, minimumInputCharacters - trimmedSearchText.count)
+            )
+        }
+        return localizedString(
+            .searchScreenCompanyListInitialStateTitle,
+            with: minimumInputCharacters
+        )
     }
 
     fileprivate func localizedString(_ string: String, with param: CVarArg) -> String {

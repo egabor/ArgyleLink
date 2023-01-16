@@ -27,6 +27,8 @@ struct AsyncImageView<Placeholder: View, Image: View>: View {
         _viewModel = .init(wrappedValue: .init(url: url))
     }
 
+    // MARK: - LEVEL 0 Views: Body & Content Wrapper (Main Containers)
+
     var body: some View {
         content
             .onAppear(perform: viewModel.loadImage)
@@ -40,4 +42,8 @@ struct AsyncImageView<Placeholder: View, Image: View>: View {
             placeholder
         }
     }
+
+    // MARK: - LEVEL 1 Views: Main UI Elements
+
+    // MARK: - LEVEL 2 Views: Helpers & Other Subcomponents
 }

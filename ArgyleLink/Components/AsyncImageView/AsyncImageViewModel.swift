@@ -17,6 +17,7 @@ class AsyncImageViewModel: ObservableObject {
     @Injected private var cache: ImageCacheProtocol
 
     @Published var image: UIImage?
+
     private(set) var isLoading = false
     private var cancellable: AnyCancellable?
 
@@ -39,7 +40,9 @@ class AsyncImageViewModel: ObservableObject {
             return
         }
 
-        cancellable = URLSession.shared.dataTaskPublisher(for: url)
+        cancellable = URLSession
+            .shared
+            .dataTaskPublisher(for: url)
             .map { UIImage(data: $0.data) }
             .replaceError(with: nil)
             .handleEvents(
